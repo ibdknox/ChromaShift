@@ -1,0 +1,19 @@
+{
+  "name": "nko3-kodowa",
+  "version": "0.0.0",
+  "description": "Kodowa",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nko3/kodowa.git"
+  },
+  "dependencies": {
+  },
+  "engines": {
+    "node": "0.8.x"
+  },
+  "subdomain": "kodowa.nko3"
+}
