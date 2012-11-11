@@ -1,0 +1,260 @@
+html, #home-body{
+	background-color: #1d1e1c;
+	height:98%;
+}
+
+canvas { 
+  display:inline;
+  float:left;
+  margin-right:30px;
+}
+
+canvas + canvas {
+  margin-right: 30px;
+}
+
+#main-page, #win, #lose {
+	display: none;
+}
+
+#searching {
+  display:none;
+}
+
+#searching p, #loading p, #win p, #lose p {
+  position:static;
+  margin:0;
+  color: white;
+  font-family: "Share Tech";
+  text-align:left;
+  font-size:30px;
+  opacity:0.6;
+  	color: #DBdbFD;
+	-moz-text-shadow: 0 0 10px #ccc;
+	-webkit-text-shadow: 0 0 10px #ccc;
+	text-shadow: 0 0 10px #ccc;
+  margin-bottom:60px;
+
+}
+
+#game-container{
+  	display:none;
+/*	background-color: blue;
+*/	position: absolute;
+	width:1060px;
+	height: 700px;
+	left: 50%;
+	margin-left: -500px;
+	top: 50%;
+	margin-top: -350px;
+	overflow: auto;
+}
+
+h1 { 
+  position:static;
+  margin:0;
+  color: white;
+  font-family: "Share Tech";
+  text-align:left;
+  font-size:80px;
+  opacity:0.6;
+  	color: #DBdbFD;
+	-moz-text-shadow: 0 0 10px #ccc;
+	-webkit-text-shadow: 0 0 10px #ccc;
+	text-shadow: 0 0 10px #ccc;
+  margin-bottom:60px;
+}
+
+#game-container #opponent-game {
+  display:none;
+}
+
+
+.center-block{
+/*	background-color: blue;
+*/	position: absolute;
+	width:800px;
+	height: 600px;
+	left: 50%;
+	margin-left: -400px;
+	top: 50%;
+	margin-top: -300px;
+	overflow: auto;
+}
+
+.center-block::-webkit-scrollbar{
+	width:5px;
+}
+
+.center-block::-webkit-scrollbar-track-piece{
+	background-color: black;
+}
+
+.center-block::-webkit-scrollbar-thumb{
+	background-color: #DBdbFD;
+	-webkit-border-radius: 2px;
+}
+
+#link-box{
+/*	background-color: purple;
+*/	text-align: left;
+	margin-top: 10%;
+	margin-left: 0px;
+}
+
+.links{
+	font-family: "Share Tech";
+	font-weight: bold;
+	font-size: 40px;
+  	opacity:0.5;
+	color: #ffffff;
+	-moz-text-shadow: 0 0 0px #ccc;
+	-webkit-text-shadow: 0 0 0px #ccc;
+	text-shadow: 0 0 0px #ccc;
+	text-decoration: none;
+  	float:left;
+	clear:both;
+/*	display:block;
+*/}
+
+.links + .links {
+	margin-top: 35px;
+}
+
+a:hover{
+	-moz-text-shadow: 0 0 5px #C4F2FF;
+	-webkit-text-shadow: 0 0 5px #C4F2FF;
+	text-shadow: 0 0 5px #C4F2FF;
+	transition-property: text-shadow 0.25s linear;
+}
+
+#help{
+/*	background-color: red;
+*/	font-size: 50px;
+	font-family: "Share Tech";
+	font-weight: bold;
+	color: #fff;
+  opacity:0.5;
+	position: absolute;
+	right: 5%;
+	top: 0%;
+	text-decoration: none;
+}
+
+#help:hover{
+	-moz-text-shadow: 0 0 5px #C4F2FF;
+	-webkit-text-shadow: 0 0 5px #C4F2FF;
+	text-shadow: 0 0 5px #C4F2FF;
+	transition-property: text-shadow 0.25s linear;
+}
+
+
+#stats{
+  display:none;
+	height: 300px;
+	width: 224px;
+	border: none;
+	border-color: #DBFFFD;
+	position: absolute;
+	right: 2%;
+	bottom: 2%;
+}
+
+.full-bars{
+/*	background-color: white;
+*/	width: 112px;
+	height: 100%;
+	float: left;
+	position: relative;
+}
+
+.bars{
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+}
+
+#purple{
+	height: 60px;
+	background-color: purple;
+}
+
+#green{
+	height: 120px;
+	background-color: #50f050;
+}
+
+#blue{
+	height: 80px;
+	background-color: blue;
+}
+
+#orange{
+	height: 100px;
+	background-color: orange;
+}
+
+#bunny-stats{
+   width: 400px;
+   position: absolute;
+   left:50%;
+   bottom: 5%
+}
+
+/*****************************************/
+
+#help-page{
+	display: none;
+}
+
+#back{
+	font-family: "Share Tech";
+	font-size: 18px;
+	font-weight: bold;
+	color: #fff;
+  opacity:0.5;
+	text-decoration: none;
+	margin-left: 8%;
+}
+
+#about-block{
+/*	background-color: red;
+*/	font-family: "Share Tech";
+	font-size: 30px;
+	font-weight: bold;
+  	width: 85%;
+	margin: auto;
+	margin-top: 10%;
+    color:#fff;
+  opacity:0.7;
+}
+
+#about-text{
+	font-size: 18px;
+	font-weight: italic;
+  color:#fff;
+  opacity:0.7;
+}
+
+#legend{
+/*	background-color: purple;
+*/	position: relative;
+	border-spacing: 40px;
+	border: none;
+	margin: auto;
+	margin-top: 35px;
+}
+
+.things-in-game{
+	height:50px;
+}
+
+.things-text{
+	font-family: "Share Tech";
+	font-size: 15px;
+  	opacity: 0.7;
+	color: #fff;
+}
+
+
+}

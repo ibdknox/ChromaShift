@@ -71,15 +71,15 @@ game.lib.physics.offs = [];
 game.lib.physics.on_contact = (function on_contact(contact){
 var a = contact.GetFixtureA();
 var b = contact.GetFixtureB();
-var c__2909__auto__ = cljs.core.count.call(null,game.lib.physics.ons);
-var i__2910__auto__ = 0;
+var c__4106__auto__ = cljs.core.count.call(null,game.lib.physics.ons);
+var i__4107__auto__ = 0;
 while(true){
-if((i__2910__auto__ < c__2909__auto__))
-{var l = (game.lib.physics.ons[i__2910__auto__]);
+if((i__4107__auto__ < c__4106__auto__))
+{var l = (game.lib.physics.ons[i__4107__auto__]);
 l.call(null,a,b);
 {
-var G__32057 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__32057;
+var G__4552 = (i__4107__auto__ + 1);
+i__4107__auto__ = G__4552;
 continue;
 }
 } else
@@ -91,15 +91,15 @@ break;
 game.lib.physics.off_contact = (function off_contact(contact){
 var a = contact.GetFixtureA();
 var b = contact.GetFixtureB();
-var c__2909__auto__ = cljs.core.count.call(null,game.lib.physics.offs);
-var i__2910__auto__ = 0;
+var c__4106__auto__ = cljs.core.count.call(null,game.lib.physics.offs);
+var i__4107__auto__ = 0;
 while(true){
-if((i__2910__auto__ < c__2909__auto__))
-{var l = (game.lib.physics.offs[i__2910__auto__]);
+if((i__4107__auto__ < c__4106__auto__))
+{var l = (game.lib.physics.offs[i__4107__auto__]);
 l.call(null,a,b);
 {
-var G__32058 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__32058;
+var G__4553 = (i__4107__auto__ + 1);
+i__4107__auto__ = G__4553;
 continue;
 }
 } else
@@ -124,16 +124,16 @@ var pos = Game.as(e,"\uFDD0'position");
 var cur_body = (new game.lib.physics.b_BodyDef());
 var props = (sim["\uFDD0'props"]);
 var body_type = (cljs.core.truth_((new cljs.core.Keyword("\uFDD0'static")).call(null,props))?game.lib.physics.b_Body.b2_staticBody:game.lib.physics.b_Body.b2_dynamicBody);
-var G__32061 = cljs.core.seq.call(null,cljs.core.dissoc.call(null,props,"\uFDD0'static"));
+var G__4556 = cljs.core.seq.call(null,cljs.core.dissoc.call(null,props,"\uFDD0'static"));
 while(true){
-if(G__32061)
-{var vec__32062 = cljs.core.first.call(null,G__32061);
-var k = cljs.core.nth.call(null,vec__32062,0,null);
-var v = cljs.core.nth.call(null,vec__32062,1,null);
+if(G__4556)
+{var vec__4557 = cljs.core.first.call(null,G__4556);
+var k = cljs.core.nth.call(null,vec__4557,0,null);
+var v = cljs.core.nth.call(null,vec__4557,1,null);
 (cur_body[cljs.core.name.call(null,k)] = v);
 {
-var G__32063 = cljs.core.next.call(null,G__32061);
-G__32061 = G__32063;
+var G__4558 = cljs.core.next.call(null,G__4556);
+G__4556 = G__4558;
 continue;
 }
 } else
@@ -153,14 +153,14 @@ return game.lib.physics.offs.push(e);
 });
 game.lib.physics.add_BANG_ = (function add_BANG_(body,fixs){
 var body__$1 = game.lib.physics.world.CreateBody(body);
-var G__32065 = cljs.core.seq.call(null,fixs);
+var G__4560 = cljs.core.seq.call(null,fixs);
 while(true){
-if(G__32065)
-{var f = cljs.core.first.call(null,G__32065);
+if(G__4560)
+{var f = cljs.core.first.call(null,G__4560);
 body__$1.CreateFixture(f);
 {
-var G__32066 = cljs.core.next.call(null,G__32065);
-G__32065 = G__32066;
+var G__4561 = cljs.core.next.call(null,G__4560);
+G__4560 = G__4561;
 continue;
 }
 } else
@@ -170,11 +170,11 @@ break;
 return body__$1;
 });
 game.lib.physics.simulate_new = (function simulate_new(ents){
-var c__2909__auto__ = cljs.core.count.call(null,ents);
-var i__2910__auto__ = 0;
+var c__4106__auto__ = cljs.core.count.call(null,ents);
+var i__4107__auto__ = 0;
 while(true){
-if((i__2910__auto__ < c__2909__auto__))
-{var e = (ents[i__2910__auto__]);
+if((i__4107__auto__ < c__4106__auto__))
+{var e = (ents[i__4107__auto__]);
 var sim = Game.as(e,"\uFDD0'simulate");
 var fixs = (sim["\uFDD0'fixtures"]);
 var b = game.lib.physics.__GT_body.call(null,e,sim);
@@ -182,8 +182,8 @@ var b__$1 = game.lib.physics.add_BANG_.call(null,b,fixs);
 game.lib.core.add_c.call(null,e,game.lib.physics.body.call(null,b__$1));
 game.lib.core.rem_c.call(null,e,"\uFDD0'simulate");
 {
-var G__32067 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__32067;
+var G__4562 = (i__4107__auto__ + 1);
+i__4107__auto__ = G__4562;
 continue;
 }
 } else
@@ -198,15 +198,15 @@ game.lib.physics.world.DestroyBody((body["\uFDD0'body"]));
 return game.lib.core.rem_c.call(null,e,"\uFDD0'body");
 });
 game.lib.physics.remove_unsimulate = (function remove_unsimulate(ents){
-var c__2909__auto__ = cljs.core.count.call(null,ents);
-var i__2910__auto__ = 0;
+var c__4106__auto__ = cljs.core.count.call(null,ents);
+var i__4107__auto__ = 0;
 while(true){
-if((i__2910__auto__ < c__2909__auto__))
-{var e = (ents[i__2910__auto__]);
+if((i__4107__auto__ < c__4106__auto__))
+{var e = (ents[i__4107__auto__]);
 game.lib.physics.rem_BANG_.call(null,e);
 {
-var G__32068 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__32068;
+var G__4563 = (i__4107__auto__ + 1);
+i__4107__auto__ = G__4563;
 continue;
 }
 } else
@@ -244,11 +244,11 @@ var body__$1 = (body["\uFDD0'body"]);
 return body__$1.ApplyImpulse((new game.lib.physics.b_Vec(x,y)),body__$1.GetWorldCenter());
 });
 game.lib.physics.reposition = (function reposition(ents){
-var c__2909__auto__ = cljs.core.count.call(null,ents);
-var i__2910__auto__ = 0;
+var c__4106__auto__ = cljs.core.count.call(null,ents);
+var i__4107__auto__ = 0;
 while(true){
-if((i__2910__auto__ < c__2909__auto__))
-{var e = (ents[i__2910__auto__]);
+if((i__4107__auto__ < c__4106__auto__))
+{var e = (ents[i__4107__auto__]);
 var pos = Game.as(e,"\uFDD0'position");
 var body = Game.as(e,"\uFDD0'body");
 var body__$1 = (body["\uFDD0'body"]);
@@ -257,8 +257,8 @@ var bpos = body__$1.GetWorldCenter();
 (pos["\uFDD0'y"] = (bpos.y * game.lib.physics.scale));
 (pos["\uFDD0'a"] = body__$1.GetAngle());
 {
-var G__32069 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__32069;
+var G__4564 = (i__4107__auto__ + 1);
+i__4107__auto__ = G__4564;
 continue;
 }
 } else
@@ -281,8 +281,8 @@ while(true){
 if(cljs.core.truth_(b))
 {game.lib.physics.world.DestroyBody(b);
 {
-var G__32070 = b.GetNext();
-b = G__32070;
+var G__4565 = b.GetNext();
+b = G__4565;
 continue;
 }
 } else

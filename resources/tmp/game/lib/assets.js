@@ -1,24 +1,24 @@
 goog.provide('game.lib.assets');
 goog.require('cljs.core');
-game.lib.assets.__GT_elem = (function (){var method_table__2621__auto__ = cljs.core.atom.call(null,cljs.core.ObjMap.EMPTY);
-var prefer_table__2622__auto__ = cljs.core.atom.call(null,cljs.core.ObjMap.EMPTY);
-var method_cache__2623__auto__ = cljs.core.atom.call(null,cljs.core.ObjMap.EMPTY);
-var cached_hierarchy__2624__auto__ = cljs.core.atom.call(null,cljs.core.ObjMap.EMPTY);
-var hierarchy__2625__auto__ = cljs.core._lookup.call(null,cljs.core.ObjMap.EMPTY,"\uFDD0'hierarchy",cljs.core.global_hierarchy);
-return (new cljs.core.MultiFn("->elem","\uFDD0'type","\uFDD0'default",hierarchy__2625__auto__,method_table__2621__auto__,prefer_table__2622__auto__,method_cache__2623__auto__,cached_hierarchy__2624__auto__));
+game.lib.assets.__GT_elem = (function (){var method_table__2560__auto__ = cljs.core.atom.call(null,cljs.core.ObjMap.EMPTY);
+var prefer_table__2561__auto__ = cljs.core.atom.call(null,cljs.core.ObjMap.EMPTY);
+var method_cache__2562__auto__ = cljs.core.atom.call(null,cljs.core.ObjMap.EMPTY);
+var cached_hierarchy__2563__auto__ = cljs.core.atom.call(null,cljs.core.ObjMap.EMPTY);
+var hierarchy__2564__auto__ = cljs.core._lookup.call(null,cljs.core.ObjMap.EMPTY,"\uFDD0'hierarchy",cljs.core.global_hierarchy);
+return (new cljs.core.MultiFn("->elem","\uFDD0'type","\uFDD0'default",hierarchy__2564__auto__,method_table__2560__auto__,prefer_table__2561__auto__,method_cache__2562__auto__,cached_hierarchy__2563__auto__));
 })();
-cljs.core._add_method.call(null,game.lib.assets.__GT_elem,"\uFDD0'image",(function (p__3066){
-var map__3067 = p__3066;
-var map__3067__$1 = ((cljs.core.seq_QMARK_.call(null,map__3067))?cljs.core.apply.call(null,cljs.core.hash_map,map__3067):map__3067);
-var src = cljs.core._lookup.call(null,map__3067__$1,"\uFDD0'src",null);
+cljs.core._add_method.call(null,game.lib.assets.__GT_elem,"\uFDD0'image",(function (p__4530){
+var map__4531 = p__4530;
+var map__4531__$1 = ((cljs.core.seq_QMARK_.call(null,map__4531))?cljs.core.apply.call(null,cljs.core.hash_map,map__4531):map__4531);
+var src = cljs.core._lookup.call(null,map__4531__$1,"\uFDD0'src",null);
 var I = (new Image());
 I.src = src;
 return I;
 }));
-cljs.core._add_method.call(null,game.lib.assets.__GT_elem,"\uFDD0'audio",(function (p__3068){
-var map__3069 = p__3068;
-var map__3069__$1 = ((cljs.core.seq_QMARK_.call(null,map__3069))?cljs.core.apply.call(null,cljs.core.hash_map,map__3069):map__3069);
-var src = cljs.core._lookup.call(null,map__3069__$1,"\uFDD0'src",null);
+cljs.core._add_method.call(null,game.lib.assets.__GT_elem,"\uFDD0'audio",(function (p__4532){
+var map__4533 = p__4532;
+var map__4533__$1 = ((cljs.core.seq_QMARK_.call(null,map__4533))?cljs.core.apply.call(null,cljs.core.hash_map,map__4533):map__4533);
+var src = cljs.core._lookup.call(null,map__4533__$1,"\uFDD0'src",null);
 var a = document.createElement("audio");
 a.src = src;
 a.load();
@@ -49,17 +49,17 @@ return cb.call(null,(new cljs.core.Keyword("\uFDD0'items")).call(null,cljs.core.
 }));
 });
 game.lib.assets.load_all = (function load_all(_BANG_set,cb){
-var G__3072 = cljs.core.seq.call(null,(new cljs.core.Keyword("\uFDD0'items")).call(null,cljs.core.deref.call(null,_BANG_set)));
+var G__4536 = cljs.core.seq.call(null,(new cljs.core.Keyword("\uFDD0'items")).call(null,cljs.core.deref.call(null,_BANG_set)));
 while(true){
-if(G__3072)
-{var vec__3073 = cljs.core.first.call(null,G__3072);
-var k = cljs.core.nth.call(null,vec__3073,0,null);
-var v = cljs.core.nth.call(null,vec__3073,1,null);
+if(G__4536)
+{var vec__4537 = cljs.core.first.call(null,G__4536);
+var k = cljs.core.nth.call(null,vec__4537,0,null);
+var v = cljs.core.nth.call(null,vec__4537,1,null);
 var elem = game.lib.assets.__GT_elem.call(null,v);
 game.lib.assets.on_load.call(null,elem,k,_BANG_set,cb);
 {
-var G__3074 = cljs.core.next.call(null,G__3072);
-G__3072 = G__3074;
+var G__4538 = cljs.core.next.call(null,G__4536);
+G__4536 = G__4538;
 continue;
 }
 } else

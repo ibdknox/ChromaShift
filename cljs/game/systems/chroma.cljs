@@ -43,8 +43,4 @@
               (when (? trip :active)
                 (letc (? trip :target) [points :points]
                       (! points :points (+ (? points :points) (? value :value)))
-                      (destroy! e)
-                      )
-
-
-                ))))
+                      )))))

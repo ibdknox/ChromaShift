@@ -12695,88 +12695,6 @@ cljs.core.UUID.prototype.toString = function() {
   return cljs.core.pr_str.call(null, this)
 };
 cljs.core.UUID;
-var game = {lib:{}};
-game.lib.core = {};
-cljs.core._STAR_print_fn_STAR_ = function(a) {
-  return console.log(a)
-};
-game.lib.core.frame = function() {
-  var a = window.requestAnimationFrame;
-  if(cljs.core.truth_(a)) {
-    return a
-  }
-  a = window.webkitRequestAnimationFrame;
-  if(cljs.core.truth_(a)) {
-    return a
-  }
-  a = window.mozRequestAnimationFrame;
-  if(cljs.core.truth_(a)) {
-    return a
-  }
-  a = window.oRequestAnimationFrame;
-  if(cljs.core.truth_(a)) {
-    return a
-  }
-  a = window.msRequestAnimationFrame;
-  return cljs.core.truth_(a) ? a : function(a) {
-    return setTimeout(a, 17)
-  }
-}();
-game.lib.core.entity = function() {
-  var a = function(a, b) {
-    for(var e = Game.create(a), f = cljs.core.seq.call(null, b);;) {
-      if(f) {
-        var g = cljs.core.first.call(null, f);
-        Game.addC(e, g);
-        f = cljs.core.next.call(null, f)
-      }else {
-        return null
-      }
-    }
-  }, b = function(b, d) {
-    var e = null;
-    goog.isDef(d) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
-    return a.call(this, b, e)
-  };
-  b.cljs$lang$maxFixedArity = 1;
-  b.cljs$lang$applyTo = function(b) {
-    var d = cljs.core.first(b), b = cljs.core.rest(b);
-    return a(d, b)
-  };
-  b.cljs$lang$arity$variadic = a;
-  return b
-}();
-game.lib.core.rem_BANG_ = function(a) {
-  return Game.destroy(a)
-};
-game.lib.core._BANG_ = cljs.core.aset;
-game.lib.core._QMARK_ = cljs.core.aget;
-game.lib.core._GT__LT_ = Game.merge;
-game.lib.core.add_c = Game.addC;
-game.lib.core.rem_c = Game.remC;
-game.lib.core.all_e = Game.allE;
-game.lib.core.has_QMARK_ = Game.has;
-game.lib.core.as = Game.as;
-game.lib.core.clear_BANG_ = Game.clear;
-game.lib.core.load_scene = function(a) {
-  game.lib.core.clear_BANG_.call(null);
-  for(a = cljs.core.seq.call(null, cljs.core.partition_all.call(null, 2, a));;) {
-    if(a) {
-      for(var b = cljs.core.first.call(null, a), c = cljs.core.nth.call(null, b, 0, null), b = cljs.core.nth.call(null, b, 1, null), c = Game.create(c), b = cljs.core.seq.call(null, b);;) {
-        if(b) {
-          var d = cljs.core.first.call(null, b);
-          Game.addC(c, d);
-          b = cljs.core.next.call(null, b)
-        }else {
-          break
-        }
-      }
-      a = cljs.core.next.call(null, a)
-    }else {
-      return null
-    }
-  }
-};
 var jayq = {util:{}};
 jayq.util.map__GT_js = function(a) {
   for(var b = {}, a = cljs.core.seq.call(null, a);;) {
@@ -13317,6 +13235,88 @@ jayq.core.off = function() {
 jayq.core.prevent = function(a) {
   return a.preventDefault()
 };
+var game = {lib:{}};
+game.lib.core = {};
+cljs.core._STAR_print_fn_STAR_ = function(a) {
+  return console.log(a)
+};
+game.lib.core.frame = function() {
+  var a = window.requestAnimationFrame;
+  if(cljs.core.truth_(a)) {
+    return a
+  }
+  a = window.webkitRequestAnimationFrame;
+  if(cljs.core.truth_(a)) {
+    return a
+  }
+  a = window.mozRequestAnimationFrame;
+  if(cljs.core.truth_(a)) {
+    return a
+  }
+  a = window.oRequestAnimationFrame;
+  if(cljs.core.truth_(a)) {
+    return a
+  }
+  a = window.msRequestAnimationFrame;
+  return cljs.core.truth_(a) ? a : function(a) {
+    return setTimeout(a, 17)
+  }
+}();
+game.lib.core.entity = function() {
+  var a = function(a, b) {
+    for(var e = Game.create(a), f = cljs.core.seq.call(null, b);;) {
+      if(f) {
+        var g = cljs.core.first.call(null, f);
+        Game.addC(e, g);
+        f = cljs.core.next.call(null, f)
+      }else {
+        return null
+      }
+    }
+  }, b = function(b, d) {
+    var e = null;
+    goog.isDef(d) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
+    return a.call(this, b, e)
+  };
+  b.cljs$lang$maxFixedArity = 1;
+  b.cljs$lang$applyTo = function(b) {
+    var d = cljs.core.first(b), b = cljs.core.rest(b);
+    return a(d, b)
+  };
+  b.cljs$lang$arity$variadic = a;
+  return b
+}();
+game.lib.core.rem_BANG_ = function(a) {
+  return Game.destroy(a)
+};
+game.lib.core._BANG_ = cljs.core.aset;
+game.lib.core._QMARK_ = cljs.core.aget;
+game.lib.core._GT__LT_ = Game.merge;
+game.lib.core.add_c = Game.addC;
+game.lib.core.rem_c = Game.remC;
+game.lib.core.all_e = Game.allE;
+game.lib.core.has_QMARK_ = Game.has;
+game.lib.core.as = Game.as;
+game.lib.core.clear_BANG_ = Game.clear;
+game.lib.core.load_scene = function(a) {
+  game.lib.core.clear_BANG_.call(null);
+  for(a = cljs.core.seq.call(null, cljs.core.partition_all.call(null, 2, a));;) {
+    if(a) {
+      for(var b = cljs.core.first.call(null, a), c = cljs.core.nth.call(null, b, 0, null), b = cljs.core.nth.call(null, b, 1, null), c = Game.create(c), b = cljs.core.seq.call(null, b);;) {
+        if(b) {
+          var d = cljs.core.first.call(null, b);
+          Game.addC(c, d);
+          b = cljs.core.next.call(null, b)
+        }else {
+          break
+        }
+      }
+      a = cljs.core.next.call(null, a)
+    }else {
+      return null
+    }
+  }
+};
 game.lib.physics = {};
 game.lib.physics.b_Vec = Box2D.Common.Math.b2Vec2;
 game.lib.physics.b_BodyDef = Box2D.Dynamics.b2BodyDef;
@@ -13520,6 +13520,17 @@ game.lib.physics.step = function() {
 game.util = {};
 game.util.brush = null;
 game.util.offset = 1E5;
+game.util.opponent_QMARK_ = !1;
+game.util.width = 1E3;
+game.util.height = 500;
+game.util.resize = function(a, b) {
+  game.util.width = a;
+  game.util.height = b;
+  jayq.core.attr.call(null, jayq.core.$.call(null, "#game"), "\ufdd0'width", a);
+  jayq.core.attr.call(null, jayq.core.$.call(null, "#game"), "\ufdd0'height", b);
+  jayq.core.attr.call(null, jayq.core.$.call(null, "#opponent-game"), "\ufdd0'width", a);
+  return jayq.core.attr.call(null, jayq.core.$.call(null, "#opponent-game"), "\ufdd0'height", b)
+};
 game.util.adjust_center = function(a, b) {
   return{"\ufdd0'x":a["\ufdd0'x"] - b["\ufdd0'hw"], "\ufdd0'y":a["\ufdd0'y"] - b["\ufdd0'hh"]}
 };
@@ -13571,14 +13582,96 @@ game.systems.chroma.chroma_physics = function(a) {
 game.systems.chroma.chromatons = function(a) {
   for(var b = cljs.core.count.call(null, a), c = 0;;) {
     if(c < b) {
-      var d = a[c], e = Game.as(d, "\ufdd0'chromaton"), f = Game.as(d, "\ufdd0'trippable");
-      cljs.core.truth_(f["\ufdd0'active"]) && (f = Game.as(f["\ufdd0'target"], "\ufdd0'points"), f["\ufdd0'points"] += e["\ufdd0'value"], game.util.destroy_BANG_.call(null, d));
+      var d = a[c], e = Game.as(d, "\ufdd0'chromaton"), d = Game.as(d, "\ufdd0'trippable");
+      cljs.core.truth_(d["\ufdd0'active"]) && (d = Game.as(d["\ufdd0'target"], "\ufdd0'points"), d["\ufdd0'points"] += e["\ufdd0'value"]);
       c += 1
     }else {
       return null
     }
   }
 };
+game.lib.util = {};
+game.lib.util.every = function(a, b) {
+  return setInterval(b, a)
+};
+game.lib.util.wait = function(a, b) {
+  return setTimeout(b, a)
+};
+game.lib.util.now = function() {
+  return(new Date).getTime()
+};
+game.flow = {};
+game.flow.match = function() {
+  return null
+};
+game.flow.menu = function() {
+  return jayq.core.fade_out.call(null, jayq.core.$.call(null, "#game-container"), 500, function() {
+    game.lib.physics.clear_BANG_.call(null);
+    game.lib.core.clear_BANG_.call(null);
+    jayq.core.fade_out.call(null, jayq.core.$.call(null, "#win"), "fast");
+    jayq.core.fade_out.call(null, jayq.core.$.call(null, "#lose"), "fast");
+    return jayq.core.fade_in.call(null, jayq.core.$.call(null, "#main-page"), "fast")
+  })
+};
+game.flow.learn = function() {
+  return jayq.core.fade_out.call(null, jayq.core.$.call(null, "#main-page"), 500, function() {
+    game.lib.physics.clear_BANG_.call(null);
+    game.lib.core.clear_BANG_.call(null);
+    jayq.core.hide.call(null, jayq.core.$.call(null, "#opponent-game"));
+    game.util.opponent_QMARK_ = !1;
+    game.lib.core.load_scene.call(null, game.levels.learn.level());
+    game.util.resize.call(null, 1E3, 500);
+    return jayq.core.fade_in.call(null, jayq.core.$.call(null, "#game-container"), "fast")
+  })
+};
+game.flow.match = function() {
+  return jayq.core.fade_out.call(null, jayq.core.$.call(null, "#main-page"), 500, function() {
+    game.lib.physics.clear_BANG_.call(null);
+    game.lib.core.clear_BANG_.call(null);
+    jayq.core.fade_in.call(null, jayq.core.$.call(null, "#searching"), "fast");
+    return game.systems.sync.queue()
+  })
+};
+game.flow.match_found = function(a) {
+  return jayq.core.fade_out.call(null, jayq.core.$.call(null, "#searching"), 500, function() {
+    game.lib.physics.clear_BANG_.call(null);
+    game.lib.core.clear_BANG_.call(null);
+    game.lib.core.load_scene.call(null, game.levels[a].level());
+    game.util.resize.call(null, 500, 500);
+    jayq.core.show.call(null, jayq.core.$.call(null, "#opponent-game"));
+    game.util.opponent_QMARK_ = !0;
+    return jayq.core.fade_in.call(null, jayq.core.$.call(null, "#game-container"), "fast")
+  })
+};
+game.flow.intro = function() {
+  return jayq.core.fade_out.call(null, jayq.core.$.call(null, "#loading"), 500, function() {
+    game.lib.physics.clear_BANG_.call(null);
+    game.lib.core.clear_BANG_.call(null);
+    game.lib.core.load_scene.call(null, game.levels.intro.level());
+    jayq.core.hide.call(null, jayq.core.$.call(null, "#opponent-game"));
+    game.util.opponent_QMARK_ = !1;
+    game.util.resize.call(null, 1E3, 500);
+    return jayq.core.fade_in.call(null, jayq.core.$.call(null, "#game-container"), "fast")
+  })
+};
+game.flow.end = function() {
+  game.lib.physics.clear_BANG_.call(null);
+  game.lib.core.clear_BANG_.call(null);
+  game.systems.sync.end();
+  return jayq.core.fade_out.call(null, jayq.core.$.call(null, "#game-container"), "slow")
+};
+game.flow.win = function() {
+  return jayq.core.fade_in.call(null, jayq.core.$.call(null, "#win"), 500, function() {
+    return game.lib.util.wait.call(null, 3E3, game.flow.menu)
+  })
+};
+game.flow.lose = function() {
+  return jayq.core.fade_in.call(null, jayq.core.$.call(null, "#lose"), 500, function() {
+    return game.lib.util.wait.call(null, 3E3, game.flow.menu)
+  })
+};
+jayq.core.bind.call(null, jayq.core.$.call(null, "#learn"), "\ufdd0'click", game.flow.learn);
+jayq.core.bind.call(null, jayq.core.$.call(null, "#fight"), "\ufdd0'click", game.flow.match);
 game.systems.sync = {};
 game.systems.sync.sock = io.connect("");
 game.systems.sync.emit = function(a, b) {
@@ -13605,10 +13698,19 @@ game.systems.sync.action = function(a) {
 game.systems.sync.sync = function() {
   return null
 };
+game.systems.sync.queue = function() {
+  return game.systems.sync.emit.call(null, "match", {})
+};
+game.systems.sync.end = function() {
+  return game.systems.sync.emit.call(null, "end", {})
+};
 game.systems.sync.game_data = function(a) {
   game.systems.chroma.color = a["\ufdd0'color"];
   game.systems.chroma.opponent_color = a["\ufdd0'opponent-color"];
-  return game.lib.core.load_scene.call(null, game.levels.opening.level())
+  return game.flow.match_found.call(null, a["\ufdd0'level"])
+};
+game.systems.sync.win = function(a) {
+  return cljs.core.truth_(a["\ufdd0'win"]) ? game.flow.win.call(null) : game.flow.lose.call(null)
 };
 game.systems.sync.sock.on("action", game.systems.sync.action);
 game.systems.sync.sock.on("sync", game.systems.sync.sync);
@@ -13616,6 +13718,7 @@ game.systems.sync.sock.on("game", game.systems.sync.game_data);
 game.systems.sync.sock.on("news", function() {
   return console.log("got news")
 });
+game.systems.sync.sock.on("win", game.systems.sync.win);
 game.systems.sync.sync_actions = function(a) {
   for(var b = cljs.core.count.call(null, a), c = 0;;) {
     if(c < b) {
@@ -13626,90 +13729,6 @@ game.systems.sync.sync_actions = function(a) {
       return null
     }
   }
-};
-game.systems.health = {};
-game.systems.health.off_map_death = function(a) {
-  for(var b = cljs.core.count.call(null, a), c = 0;;) {
-    if(c < b) {
-      var d = a[c], e = Game.as(d, "\ufdd0'position"), d = Game.as(d, "\ufdd0'health");
-      1E3 < e["\ufdd0'y"] && (d["\ufdd0'dead"] = !0);
-      c += 1
-    }else {
-      return null
-    }
-  }
-};
-game.systems.health.trippable_death = function(a) {
-  for(var b = cljs.core.count.call(null, a), c = 0;;) {
-    if(c < b) {
-      var d = Game.as(a[c], "\ufdd0'trippable");
-      cljs.core.truth_(d["\ufdd0'active"]) && (Game.as(d["\ufdd0'target"], "\ufdd0'health")["\ufdd0'dead"] = !0);
-      c += 1
-    }else {
-      return null
-    }
-  }
-};
-game.systems.health.kill = function(a) {
-  for(var b = cljs.core.count.call(null, a), c = 0;;) {
-    if(c < b) {
-      var d = a[c], e = Game.as(d, "\ufdd0'health");
-      Game.as(d, "\ufdd0'position");
-      var f = Game.as(d, "\ufdd0'player-actions"), g = Game.as(d, "\ufdd0'animated"), d = Game.as(d, "\ufdd0'spawn");
-      cljs.core.truth_(e["\ufdd0'dead"]) && (cljs.core.not.call(null, e["\ufdd0'count"]) ? (e["\ufdd0'count"] = 60, f["\ufdd0'can-act?"] = !1, g["\ufdd0'animation"] = "\ufdd0'death", g["\ufdd0'count"] = 0, g["\ufdd0'frame"] = -1) : cljs.core._EQ_.call(null, e["\ufdd0'count"], 0) ? (e["\ufdd0'count"] = !1, e["\ufdd0'dead"] = !1, d["\ufdd0'respawn"] = !0) : e["\ufdd0'count"] -= 1);
-      c += 1
-    }else {
-      return null
-    }
-  }
-};
-game.systems.health.trippable_and_player_QMARK_ = function(a, b) {
-  var c = game.lib.physics.fix__GT_ent.call(null, a), d = game.lib.physics.fix__GT_ent.call(null, b);
-  return cljs.core.truth_(function() {
-    var a = game.lib.core.has_QMARK_.call(null, c, "\ufdd0'player");
-    return cljs.core.truth_(a) ? game.lib.core.has_QMARK_.call(null, d, "\ufdd0'trippable") : a
-  }()) ? cljs.core.PersistentVector.fromArray([c, d], !0) : cljs.core.truth_(function() {
-    var a = game.lib.core.has_QMARK_.call(null, d, "\ufdd0'player");
-    return cljs.core.truth_(a) ? game.lib.core.has_QMARK_.call(null, c, "\ufdd0'trippable") : a
-  }()) ? cljs.core.PersistentVector.fromArray([d, c], !0) : null
-};
-game.systems.health.on_trip = function(a, b) {
-  var c = game.systems.health.trippable_and_player_QMARK_.call(null, a, b);
-  if(cljs.core.truth_(c)) {
-    var d = cljs.core.nth.call(null, c, 0, null), c = cljs.core.nth.call(null, c, 1, null), c = Game.as(c, "\ufdd0'trippable");
-    c["\ufdd0'target"] = d;
-    return c["\ufdd0'active"] = !0
-  }
-  return null
-};
-game.systems.health.off_trip = function(a, b) {
-  var c = game.systems.health.trippable_and_player_QMARK_.call(null, a, b);
-  return cljs.core.truth_(c) ? (cljs.core.nth.call(null, c, 0, null), c = cljs.core.nth.call(null, c, 1, null), c = Game.as(c, "\ufdd0'trippable"), c["\ufdd0'target"] = null, c["\ufdd0'active"] = !1) : null
-};
-game.systems.health.death_conditions = function(a) {
-  game.systems.health.off_map_death.call(null, a);
-  return game.systems.health.trippable_death.call(null, game.lib.core.all_e.call(null, "\ufdd0'deadly"))
-};
-game.systems.health.spawn = function(a) {
-  for(var b = cljs.core.count.call(null, a), c = 0;;) {
-    if(c < b) {
-      var d = a[c], e = Game.as(d, "\ufdd0'spawn"), f = Game.as(d, "\ufdd0'player-actions"), g = Game.as(d, "\ufdd0'position");
-      cljs.core.truth_(e["\ufdd0'respawn"]) && (game.lib.physics.set_position.call(null, d, e["\ufdd0'x"], e["\ufdd0'y"]), g["\ufdd0'x"] = e["\ufdd0'x"], g["\ufdd0'y"] = e["\ufdd0'y"], f["\ufdd0'can-act?"] = !0, e["\ufdd0'respawn"] = !1);
-      c += 1
-    }else {
-      return null
-    }
-  }
-};
-game.lib.util = {};
-game.lib.util.every = function(a, b) {
-  return setInterval(b, a)
-};
-game.lib.util.wait = function(a, b) {
-  return setTimeout(b, a)
-};
-game.lib.util.now = function() {
-  return(new Date).getTime()
 };
 game.comps = {};
 game.comps.pos_offset = 0;
@@ -13743,7 +13762,7 @@ game.comps.synced = function() {
   return{name:"\ufdd0'synced", "\ufdd0'last-actions":{}}
 };
 game.comps.jump = function() {
-  return{name:"\ufdd0'jump", "\ufdd0'count":0, "\ufdd0'falling":!1, "\ufdd0'ground":!0}
+  return{name:"\ufdd0'jump", "\ufdd0'count":0, "\ufdd0'ground-count":0, "\ufdd0'falling":!1, "\ufdd0'ground":!0}
 };
 game.comps.blocked = function() {
   return{name:"\ufdd0'blocked", "\ufdd0'left":!1, "\ufdd0'right":!1}
@@ -13758,16 +13777,19 @@ game.comps.opponent = function() {
   return{name:"\ufdd0'opponent"}
 };
 game.comps.chroma = function(a) {
-  return{name:"\ufdd0'chroma", "\ufdd0'count":0, "\ufdd0'color":a, "\ufdd0'active":!1}
+  return{name:"\ufdd0'chroma", "\ufdd0'count":0, "\ufdd0'color":a, "\ufdd0'active":!0}
 };
 game.comps.chroma_activated = function(a) {
-  return{name:"\ufdd0'chroma-activated", "\ufdd0'color":a, "\ufdd0'active":!1}
+  return{name:"\ufdd0'chroma-activated", "\ufdd0'color":a, "\ufdd0'active":!0}
 };
 game.comps.health = function() {
   return{name:"\ufdd0'health", "\ufdd0'dead":!1, "\ufdd0'count":!1}
 };
 game.comps.spawn = function(a, b) {
   return{name:"\ufdd0'spawn", "\ufdd0'respawn":!1, "\ufdd0'x":game.comps.pos_offset + a, "\ufdd0'y":b}
+};
+game.comps.respawn = function(a, b) {
+  return{name:"\ufdd0'respawn", "\ufdd0'x":game.comps.pos_offset + a, "\ufdd0'y":b}
 };
 game.comps.trippable = function() {
   return{name:"\ufdd0'trippable", "\ufdd0'active":!1}
@@ -13791,11 +13813,28 @@ game.comps.solid = function() {
 game.comps.animated = function(a) {
   return{name:"\ufdd0'animated", "\ufdd0'animation":a, "\ufdd0'frame":-1, "\ufdd0'count":0}
 };
+game.comps.single_use = function(a) {
+  a = cljs.core.truth_(a) ? a : 0;
+  return{name:"\ufdd0'single-use", "\ufdd0'counting":!1, "\ufdd0'count":a}
+};
 game.comps.keyboard = function() {
   return{name:"\ufdd0'keyboard"}
 };
 game.comps.facing = function() {
   return{name:"\ufdd0'facing", "\ufdd0'dir":"\ufdd0'right"}
+};
+game.comps.hint = function(a) {
+  return{name:"\ufdd0'hint", "\ufdd0'hint":a}
+};
+game.comps.func_activate = function(a) {
+  return{name:"\ufdd0'func-activate", "\ufdd0'fn":a}
+};
+game.entities = {};
+game.entities.background = {};
+game.entities.background.render_normal = function(a) {
+  var b = Game.as(a, "\ufdd0'position"), a = Game.as(a, "\ufdd0'dimensions");
+  game.util.brush.fillStyle("black");
+  return game.util.brush.rect(game.lib.core._GT__LT_.call(null, game.util.adjust_center.call(null, b, a), a))
 };
 game.lib.assets = {};
 game.lib.assets.__GT_elem = function() {
@@ -13846,6 +13885,583 @@ game.lib.assets.load_set = function(a, b, c) {
 game.lib.assets.s = game.lib.assets.load_set.call(null, "\ufdd0'test", cljs.core.ObjMap.fromObject(["\ufdd0'logo", "\ufdd0'lightning"], {"\ufdd0'logo":cljs.core.ObjMap.fromObject(["\ufdd0'type", "\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", "\ufdd0'src":"file:///users/chris/repos/gambit/resources/img/running.png"}), "\ufdd0'lightning":cljs.core.ObjMap.fromObject(["\ufdd0'type", "\ufdd0'src"], {"\ufdd0'type":"\ufdd0'audio", "\ufdd0'src":"file:///Users/chris/Downloads/lightning.ogg"})}), function() {
   return cljs.core.List.EMPTY
 });
+game.renderers = {};
+game.renderers.__GT_color = cljs.core.ObjMap.fromObject(["\ufdd0'blue", "\ufdd0'green"], {"\ufdd0'blue":"#33a3ff", "\ufdd0'green":"#50f050"});
+game.renderers.load_clear = function(a) {
+  game.lib.physics.clear_BANG_.call(null);
+  return game.lib.core.load_scene.call(null, a)
+};
+game.renderers.render_player = function(a) {
+  var b = Game.as(a, "\ufdd0'position"), c = Game.as(a, "\ufdd0'dimensions"), a = Game.as(a, "\ufdd0'chroma"), a = cljs.core.truth_(a["\ufdd0'active"]) ? game.renderers.__GT_color.call(null, a["\ufdd0'color"]) : "#666";
+  game.util.brush.fillStyle(a);
+  return game.util.brush.rect(game.lib.core._GT__LT_.call(null, game.util.adjust_center.call(null, b, c), c))
+};
+game.renderers.render_ground = function(a) {
+  var b = Game.as(a, "\ufdd0'position"), a = Game.as(a, "\ufdd0'dimensions");
+  game.util.brush.fillStyle("#666");
+  return game.util.brush.rect(game.lib.core._GT__LT_.call(null, game.util.adjust_center.call(null, b, a), a))
+};
+game.renderers.render_chroma_ground = function(a) {
+  var b = Game.as(a, "\ufdd0'position"), c = Game.as(a, "\ufdd0'dimensions"), a = Game.as(a, "\ufdd0'chroma-activated");
+  game.util.brush.save();
+  cljs.core.truth_(a["\ufdd0'active"]) || game.util.brush.opacity(0.4);
+  game.util.brush.fillStyle(game.renderers.__GT_color.call(null, a["\ufdd0'color"]));
+  game.util.brush.rect(game.lib.core._GT__LT_.call(null, game.util.adjust_center.call(null, b, c), c));
+  return game.util.brush.restore()
+};
+game.renderers.render_mine = function(a) {
+  var b = Game.as(a, "\ufdd0'position"), c = Game.as(a, "\ufdd0'dimensions"), a = Game.as(a, "\ufdd0'chroma-activated"), d = game.util.kstr.call(null, a["\ufdd0'color"], "landmine");
+  game.util.brush.save();
+  cljs.core.truth_(a["\ufdd0'active"]) || game.util.brush.opacity(0.5);
+  game.util.brush.image((new cljs.core.Keyword("\ufdd0'elem")).call(null, d.call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), game.util.adjust_center.call(null, b, c));
+  return game.util.brush.restore()
+};
+game.renderers.render_hint = function(a) {
+  var b = Game.as(a, "\ufdd0'position"), c = Game.as(a, "\ufdd0'dimensions"), d = Game.as(a, "\ufdd0'hint"), e = Game.as(a, "\ufdd0'trippable");
+  return cljs.core.truth_(function() {
+    var a = cljs.core.not.call(null, e);
+    return a ? a : e["\ufdd0'active"]
+  }()) ? (game.util.brush.fillStyle("#fff"), game.util.brush.font("14pt Share Tech"), game.util.brush.text(game.util.adjust_center.call(null, b, c), d["\ufdd0'hint"])) : null
+};
+game.renderers.render_chromaton = function(a) {
+  var b = Game.as(a, "\ufdd0'position"), a = Game.as(a, "\ufdd0'dimensions");
+  game.util.brush.save();
+  game.util.brush.opacity(0.8);
+  game.util.brush.image((new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'chromaton")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), game.util.adjust_center.call(null, b, a));
+  return game.util.brush.restore()
+};
+game.renderers.render_goal = function(a) {
+  var b = Game.as(a, "\ufdd0'position"), a = Game.as(a, "\ufdd0'dimensions");
+  game.util.brush.save();
+  game.util.brush.opacity(0.8);
+  game.util.brush.image((new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'goal")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), game.util.adjust_center.call(null, b, a));
+  return game.util.brush.restore()
+};
+game.renderers.render_score = function(a) {
+  var b = cljs.core.first.call(null, game.lib.core.all_e.call(null, "\ufdd0'player")), a = Game.as(a, "\ufdd0'position"), b = Game.as(b, "\ufdd0'points");
+  game.util.brush.fillStyle("#fff");
+  game.util.brush.font("14pt Share Tech");
+  return game.util.brush.text(a, "" + cljs.core.str(b["\ufdd0'points"]))
+};
+game.renderers.s = game.lib.assets.load_set.call(null, "\ufdd0'test", cljs.core.ObjMap.fromObject("\ufdd0'bluelandmine \ufdd0'bluerunning \ufdd0'greenlandmine \ufdd0'greenjumping \ufdd0'greenrunning \ufdd0'goal \ufdd0'bluejumping \ufdd0'bluedeath \ufdd0'greendeath \ufdd0'chromaton \ufdd0'greenstanding \ufdd0'bluestanding".split(" "), {"\ufdd0'bluelandmine":cljs.core.ObjMap.fromObject(["\ufdd0'type", "\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", "\ufdd0'src":"/assets/img/bluelandmine.png"}), "\ufdd0'bluerunning":cljs.core.ObjMap.fromObject(["\ufdd0'type", 
+"\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", "\ufdd0'src":"/assets/img/bluerunning.png"}), "\ufdd0'greenlandmine":cljs.core.ObjMap.fromObject(["\ufdd0'type", "\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", "\ufdd0'src":"/assets/img/greenlandmine.png"}), "\ufdd0'greenjumping":cljs.core.ObjMap.fromObject(["\ufdd0'type", "\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", "\ufdd0'src":"/assets/img/greenjumping.png"}), "\ufdd0'greenrunning":cljs.core.ObjMap.fromObject(["\ufdd0'type", "\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", 
+"\ufdd0'src":"/assets/img/greenrunning.png"}), "\ufdd0'goal":cljs.core.ObjMap.fromObject(["\ufdd0'type", "\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", "\ufdd0'src":"/assets/img/goal.png"}), "\ufdd0'bluejumping":cljs.core.ObjMap.fromObject(["\ufdd0'type", "\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", "\ufdd0'src":"/assets/img/bluejumping.png"}), "\ufdd0'bluedeath":cljs.core.ObjMap.fromObject(["\ufdd0'type", "\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", "\ufdd0'src":"/assets/img/bluedeath.png"}), "\ufdd0'greendeath":cljs.core.ObjMap.fromObject(["\ufdd0'type", 
+"\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", "\ufdd0'src":"/assets/img/greendeath.png"}), "\ufdd0'chromaton":cljs.core.ObjMap.fromObject(["\ufdd0'type", "\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", "\ufdd0'src":"/assets/img/chromaton.png"}), "\ufdd0'greenstanding":cljs.core.ObjMap.fromObject(["\ufdd0'type", "\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", "\ufdd0'src":"/assets/img/greenstanding.png"}), "\ufdd0'bluestanding":cljs.core.ObjMap.fromObject(["\ufdd0'type", "\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", 
+"\ufdd0'src":"/assets/img/bluestanding.png"})}), function() {
+  game.renderers.init.call(null);
+  return game.flow.intro.call(null)
+});
+game.renderers.init = function() {
+  game.renderers.blue_anim = cljs.core.ObjMap.fromObject("\ufdd0'jump-left \ufdd0'falling-left \ufdd0'running-right \ufdd0'standing-right \ufdd0'jump-right \ufdd0'falling-right \ufdd0'running-left \ufdd0'standing-left \ufdd0'death".split(" "), {"\ufdd0'jump-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":1, "\ufdd0'speed":15, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, 
+  (new cljs.core.Keyword("\ufdd0'bluejumping")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":210, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'falling-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":2, "\ufdd0'speed":5, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'bluejumping")).call(null, 
+  (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":114, "\ufdd0'y":210, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'running-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":11, "\ufdd0'speed":3, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'bluerunning")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, 
+  cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":140, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'standing-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":0, "\ufdd0'speed":0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'bluestanding")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), 
+  "\ufdd0'x":0, "\ufdd0'y":140, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'jump-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":1, "\ufdd0'speed":15, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'bluejumping")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, 
+  "\ufdd0'y":140, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'falling-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":2, "\ufdd0'speed":5, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'bluejumping")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":114, "\ufdd0'y":140, 
+  "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'running-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":11, "\ufdd0'speed":3, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'bluerunning")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":210, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'standing-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), 
+  {"\ufdd0'frames":0, "\ufdd0'speed":0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'bluestanding")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":210, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'death":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":10, "\ufdd0'speed":3, 
+  "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'bluedeath")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":70, "\ufdd0'w":68, "\ufdd0'h":93})});
+  game.renderers.blue_anim_off = cljs.core.ObjMap.fromObject("\ufdd0'jump-left \ufdd0'falling-left \ufdd0'running-right \ufdd0'standing-right \ufdd0'jump-right \ufdd0'falling-right \ufdd0'running-left \ufdd0'standing-left \ufdd0'death".split(" "), {"\ufdd0'jump-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":1, "\ufdd0'speed":15, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, 
+  (new cljs.core.Keyword("\ufdd0'bluejumping")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":70, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'falling-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":2, "\ufdd0'speed":5, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'bluejumping")).call(null, 
+  (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":114, "\ufdd0'y":70, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'running-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":11, "\ufdd0'speed":3, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'bluerunning")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, 
+  cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":0, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'standing-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":0, "\ufdd0'speed":0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'bluestanding")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), 
+  "\ufdd0'x":0, "\ufdd0'y":0, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'jump-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":1, "\ufdd0'speed":15, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'bluejumping")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, 
+  "\ufdd0'y":0, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'falling-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":2, "\ufdd0'speed":5, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'bluejumping")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":114, "\ufdd0'y":0, 
+  "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'running-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":11, "\ufdd0'speed":3, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'bluerunning")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":70, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'standing-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), 
+  {"\ufdd0'frames":0, "\ufdd0'speed":0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'bluestanding")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":70, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'death":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":10, "\ufdd0'speed":3, 
+  "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'bluedeath")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":0, "\ufdd0'w":68, "\ufdd0'h":93})});
+  game.renderers.green_anim = cljs.core.ObjMap.fromObject("\ufdd0'jump-left \ufdd0'falling-left \ufdd0'running-right \ufdd0'standing-right \ufdd0'jump-right \ufdd0'falling-right \ufdd0'running-left \ufdd0'standing-left \ufdd0'death".split(" "), {"\ufdd0'jump-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":1, "\ufdd0'speed":15, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, 
+  (new cljs.core.Keyword("\ufdd0'greenjumping")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":210, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'falling-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":2, "\ufdd0'speed":5, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'greenjumping")).call(null, 
+  (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":114, "\ufdd0'y":210, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'running-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":11, "\ufdd0'speed":3, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'greenrunning")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, 
+  cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":140, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'standing-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":0, "\ufdd0'speed":0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'greenstanding")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), 
+  "\ufdd0'x":0, "\ufdd0'y":140, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'jump-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":1, "\ufdd0'speed":15, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'greenjumping")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, 
+  "\ufdd0'y":140, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'falling-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":2, "\ufdd0'speed":5, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'greenjumping")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":114, "\ufdd0'y":140, 
+  "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'running-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":11, "\ufdd0'speed":3, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'greenrunning")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":210, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'standing-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), 
+  {"\ufdd0'frames":0, "\ufdd0'speed":0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'greenstanding")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":210, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'death":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":10, "\ufdd0'speed":3, 
+  "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'greendeath")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":70, "\ufdd0'w":68, "\ufdd0'h":93})});
+  game.renderers.green_anim_off = cljs.core.ObjMap.fromObject("\ufdd0'jump-left \ufdd0'falling-left \ufdd0'running-right \ufdd0'standing-right \ufdd0'jump-right \ufdd0'falling-right \ufdd0'running-left \ufdd0'standing-left \ufdd0'death".split(" "), {"\ufdd0'jump-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":1, "\ufdd0'speed":15, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, 
+  (new cljs.core.Keyword("\ufdd0'greenjumping")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":70, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'falling-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":2, "\ufdd0'speed":5, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'greenjumping")).call(null, 
+  (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":114, "\ufdd0'y":70, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'running-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":11, "\ufdd0'speed":3, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'greenrunning")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, 
+  cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":0, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'standing-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":0, "\ufdd0'speed":0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'greenstanding")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), 
+  "\ufdd0'x":0, "\ufdd0'y":0, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'jump-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":1, "\ufdd0'speed":15, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'greenjumping")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, 
+  "\ufdd0'y":0, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'falling-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":2, "\ufdd0'speed":5, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'greenjumping")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":114, "\ufdd0'y":0, 
+  "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'running-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":11, "\ufdd0'speed":3, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'greenrunning")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":70, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'standing-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), 
+  {"\ufdd0'frames":0, "\ufdd0'speed":0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'greenstanding")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":70, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'death":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":10, "\ufdd0'speed":3, 
+  "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'greendeath")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.renderers.s)))), "\ufdd0'x":0, "\ufdd0'y":0, "\ufdd0'w":68, "\ufdd0'h":93})});
+  game.renderers.animations = cljs.core.ObjMap.fromObject(["\ufdd0'blue-on", "\ufdd0'blue-off", "\ufdd0'green-on", "\ufdd0'green-off"], {"\ufdd0'blue-on":game.renderers.blue_anim, "\ufdd0'blue-off":game.renderers.blue_anim_off, "\ufdd0'green-on":game.renderers.green_anim, "\ufdd0'green-off":game.renderers.green_anim_off})
+};
+game.renderers.__GT_anim_set = function(a) {
+  return cljs.core.keyword.call(null, [cljs.core.str(cljs.core.name.call(null, a["\ufdd0'color"])), cljs.core.str("-"), cljs.core.str(cljs.core.truth_(a["\ufdd0'active"]) ? "on" : "off")].join(""))
+};
+game.renderers.animate = function(a, b, c) {
+  var d = game.renderers.animations.call(null, game.renderers.__GT_anim_set.call(null, a)).call(null, b["\ufdd0'animation"]);
+  cljs.core._EQ_.call(null, 0, b["\ufdd0'count"]) && (b["\ufdd0'frame"] += 1, b["\ufdd0'count"] = (new cljs.core.Keyword("\ufdd0'speed")).call(null, d));
+  (function() {
+    var a = b["\ufdd0'count"] > 0;
+    return a ? b["\ufdd0'frame"] <= (new cljs.core.Keyword("\ufdd0'frames")).call(null, d) : a
+  })() && (b["\ufdd0'count"] -= 1);
+  (function() {
+    var a = b["\ufdd0'frame"] > (new cljs.core.Keyword("\ufdd0'frames")).call(null, d);
+    return a ? cljs.core.not.call(null, (new cljs.core.Keyword("\ufdd0'freeze")).call(null, d)) : a
+  })() && (b["\ufdd0'frame"] = 0);
+  return game.util.brush.clippedImage((new cljs.core.Keyword("\ufdd0'img")).call(null, d), b["\ufdd0'frame"] * (new cljs.core.Keyword("\ufdd0'w")).call(null, d), (new cljs.core.Keyword("\ufdd0'y")).call(null, d), (new cljs.core.Keyword("\ufdd0'w")).call(null, d), (new cljs.core.Keyword("\ufdd0'h")).call(null, d), game.util.adjust_center.call(null, c, {"\ufdd0'hw":(new cljs.core.Keyword("\ufdd0'w")).call(null, d) / 2, "\ufdd0'hh":(new cljs.core.Keyword("\ufdd0'h")).call(null, d) / 2}))
+};
+game.renderers.draw_image = function(a) {
+  var b = Game.as(a, "\ufdd0'position");
+  Game.as(a, "\ufdd0'renderable");
+  var c = Game.as(a, "\ufdd0'dimensions"), d = Game.as(a, "\ufdd0'animated"), a = Game.as(a, "\ufdd0'chroma");
+  game.util.brush.save();
+  game.renderers.animate.call(null, a, d, b, c);
+  return game.util.brush.restore()
+};
+game.levels = {};
+game.levels.learn = {};
+game.renderers.render_ground = function(a) {
+  var b = Game.as(a, "\ufdd0'position"), a = Game.as(a, "\ufdd0'dimensions");
+  game.util.brush.fillStyle("#666");
+  return game.util.brush.rect(game.lib.core._GT__LT_.call(null, game.util.adjust_center.call(null, b, a), a))
+};
+game.levels.learn.level = function() {
+  return cljs.core.PersistentVector.fromArray(["\ufdd0'background", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.entities.background.render_normal, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.backing_layer.call(null), game.comps.position.call(null, 250, 250, 0), game.comps.dimensions.call(null, 2E3, 1500)], !0), "\ufdd0'camera", cljs.core.PersistentVector.fromArray([game.comps.position.call(null, 0, 0), game.comps.dimensions.call(null, 500, 500), game.comps.camera.call(null)], !0), "\ufdd0'player", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.draw_image, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 250, 330, 0), game.comps.dimensions.call(null, 57, 70), game.comps.keyboard.call(null), game.comps.chroma.call(null, game.systems.chroma.color), game.comps.animated.call(null, "\ufdd0'standing-right"), game.comps.facing.call(null), game.comps.synced.call(null), game.comps.blocked.call(null), game.comps.player.call(null), game.comps.points.call(null), game.comps.spawn.call(null, 250, 330), game.comps.health.call(null), game.comps.player_actions.call(null), game.comps.jump.call(null), 
+  game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'fixedRotation", "\ufdd0'allowSleep"], {"\ufdd0'fixedRotation":!0, "\ufdd0'allowSleep":!1}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'restitution"], {"\ufdd0'w":25, "\ufdd0'h":70, "\ufdd0'restitution":0})), game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject("\ufdd0'w \ufdd0'h \ufdd0'x \ufdd0'y \ufdd0'density \ufdd0'data \ufdd0'sensor".split(" "), 
+  {"\ufdd0'w":5, "\ufdd0'h":67, "\ufdd0'x":-12, "\ufdd0'y":0, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'left-side", "\ufdd0'sensor":!0})), game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject("\ufdd0'w \ufdd0'h \ufdd0'x \ufdd0'y \ufdd0'density \ufdd0'data \ufdd0'sensor".split(" "), {"\ufdd0'w":5, "\ufdd0'h":67, "\ufdd0'x":12, "\ufdd0'y":0, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'right-side", "\ufdd0'sensor":!0})), game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject("\ufdd0'w \ufdd0'h \ufdd0'x \ufdd0'y \ufdd0'density \ufdd0'data \ufdd0'sensor".split(" "), 
+  {"\ufdd0'w":15, "\ufdd0'h":10, "\ufdd0'x":0, "\ufdd0'y":35, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'foot", "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'hint", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_hint, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.hint.call(null, "This is you."), game.comps.object_layer.call(null), game.comps.position.call(null, 250, 300), game.comps.dimensions.call(null, 70, 80), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":200, "\ufdd0'h":200, "\ufdd0'sensor":!0}))], 
+  !0))], !0), "\ufdd0'hint", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_hint, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.hint.call(null, "Use the arrows to move. ->"), game.comps.object_layer.call(null), game.comps.position.call(null, 250, 300), game.comps.dimensions.call(null, 150, -290), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":200, "\ufdd0'h":200, 
+  "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'hint", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_hint, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.hint.call(null, "Use z to chromashift."), game.comps.object_layer.call(null), game.comps.position.call(null, 500, 300), game.comps.dimensions.call(null, 150, -290), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":300, "\ufdd0'h":200, 
+  "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'hint", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_hint, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.hint.call(null, "Use space to jump."), game.comps.object_layer.call(null), game.comps.position.call(null, 850, 300), game.comps.dimensions.call(null, 150, -290), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":300, "\ufdd0'h":200, 
+  "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'hint", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_hint, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.hint.call(null, "<- get this"), game.comps.object_layer.call(null), game.comps.position.call(null, 870, 205), game.comps.dimensions.call(null, 0, 0)], !0), "\ufdd0'chromaton", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_goal, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.func_activate.call(null, game.flow.menu), game.comps.single_use.call(null), game.comps.object_layer.call(null), game.comps.position.call(null, 850, 200, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], 
+  {"\ufdd0'w":10, "\ufdd0'h":10, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 600, 300, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.comps.dimensions.call(null, 10, 200), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":10, "\ufdd0'h":150}))], 
+  !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 650, 400, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 1200, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":1200, "\ufdd0'h":10}))], !0))], !0)], !0)
+};
+game.systems.health = {};
+game.systems.health.off_map_death = function(a) {
+  for(var b = cljs.core.count.call(null, a), c = 0;;) {
+    if(c < b) {
+      var d = a[c], e = Game.as(d, "\ufdd0'position"), d = Game.as(d, "\ufdd0'health");
+      1E3 < e["\ufdd0'y"] && (d["\ufdd0'dead"] = !0);
+      c += 1
+    }else {
+      return null
+    }
+  }
+};
+game.systems.health.trippable_death = function(a) {
+  for(var b = cljs.core.count.call(null, a), c = 0;;) {
+    if(c < b) {
+      var d = a[c], e = Game.as(d, "\ufdd0'trippable");
+      Game.as(d, "\ufdd0'single-use");
+      cljs.core.truth_(e["\ufdd0'active"]) && (Game.as(e["\ufdd0'target"], "\ufdd0'health")["\ufdd0'dead"] = !0);
+      c += 1
+    }else {
+      return null
+    }
+  }
+};
+game.systems.health.single_use = function(a) {
+  for(var b = cljs.core.count.call(null, a), c = 0;;) {
+    if(c < b) {
+      var d = a[c], e = Game.as(d, "\ufdd0'single-use"), f = Game.as(d, "\ufdd0'trippable");
+      cljs.core.truth_(function() {
+        var a = f["\ufdd0'active"];
+        return cljs.core.truth_(a) ? a : e["\ufdd0'counting"]
+      }()) && (cljs.core._EQ_.call(null, e["\ufdd0'count"], 0) ? game.util.destroy_BANG_.call(null, d) : cljs.core.not.call(null, e["\ufdd0'counting"]) ? e["\ufdd0'counting"] = !0 : e["\ufdd0'count"] -= 1);
+      c += 1
+    }else {
+      return null
+    }
+  }
+};
+game.systems.health.kill = function(a) {
+  for(var b = cljs.core.count.call(null, a), c = 0;;) {
+    if(c < b) {
+      var d = a[c], e = Game.as(d, "\ufdd0'health");
+      Game.as(d, "\ufdd0'position");
+      var f = Game.as(d, "\ufdd0'player-actions"), g = Game.as(d, "\ufdd0'animated"), d = Game.as(d, "\ufdd0'spawn");
+      cljs.core.truth_(e["\ufdd0'dead"]) && (cljs.core.not.call(null, e["\ufdd0'count"]) ? (e["\ufdd0'count"] = 60, f["\ufdd0'can-act?"] = !1, g["\ufdd0'animation"] = "\ufdd0'death", g["\ufdd0'count"] = 0, g["\ufdd0'frame"] = -1) : cljs.core._EQ_.call(null, e["\ufdd0'count"], 0) ? (e["\ufdd0'count"] = !1, e["\ufdd0'dead"] = !1, d["\ufdd0'respawn"] = !0) : e["\ufdd0'count"] -= 1);
+      c += 1
+    }else {
+      return null
+    }
+  }
+};
+game.systems.health.trippable_and_player_QMARK_ = function(a, b) {
+  var c = game.lib.physics.fix__GT_ent.call(null, a), d = game.lib.physics.fix__GT_ent.call(null, b);
+  return cljs.core.truth_(function() {
+    var a = game.lib.core.has_QMARK_.call(null, c, "\ufdd0'player");
+    return cljs.core.truth_(a) ? game.lib.core.has_QMARK_.call(null, d, "\ufdd0'trippable") : a
+  }()) ? cljs.core.PersistentVector.fromArray([c, d], !0) : cljs.core.truth_(function() {
+    var a = game.lib.core.has_QMARK_.call(null, d, "\ufdd0'player");
+    return cljs.core.truth_(a) ? game.lib.core.has_QMARK_.call(null, c, "\ufdd0'trippable") : a
+  }()) ? cljs.core.PersistentVector.fromArray([d, c], !0) : null
+};
+game.systems.health.on_trip = function(a, b) {
+  var c = game.systems.health.trippable_and_player_QMARK_.call(null, a, b);
+  if(cljs.core.truth_(c)) {
+    var d = cljs.core.nth.call(null, c, 0, null), c = cljs.core.nth.call(null, c, 1, null), c = Game.as(c, "\ufdd0'trippable");
+    c["\ufdd0'target"] = d;
+    return c["\ufdd0'active"] = !0
+  }
+  return null
+};
+game.systems.health.off_trip = function(a, b) {
+  var c = game.systems.health.trippable_and_player_QMARK_.call(null, a, b);
+  return cljs.core.truth_(c) ? (cljs.core.nth.call(null, c, 0, null), c = cljs.core.nth.call(null, c, 1, null), c = Game.as(c, "\ufdd0'trippable"), c["\ufdd0'target"] = null, c["\ufdd0'active"] = !1) : null
+};
+game.systems.health.death_conditions = function(a) {
+  game.systems.health.off_map_death.call(null, a);
+  return game.systems.health.trippable_death.call(null, game.lib.core.all_e.call(null, "\ufdd0'deadly"))
+};
+game.systems.health.spawn = function(a) {
+  for(var b = cljs.core.count.call(null, a), c = 0;;) {
+    if(c < b) {
+      var d = a[c], e = Game.as(d, "\ufdd0'spawn"), f = Game.as(d, "\ufdd0'player-actions"), g = Game.as(d, "\ufdd0'position");
+      cljs.core.truth_(e["\ufdd0'respawn"]) && (game.lib.physics.set_position.call(null, d, e["\ufdd0'x"], e["\ufdd0'y"]), game.lib.physics.velocity.call(null, d, 0, 0), g["\ufdd0'x"] = e["\ufdd0'x"], g["\ufdd0'y"] = e["\ufdd0'y"], f["\ufdd0'can-act?"] = !0, e["\ufdd0'respawn"] = !1);
+      c += 1
+    }else {
+      return null
+    }
+  }
+};
+game.systems.health.respawn_point = function(a) {
+  for(var b = cljs.core.count.call(null, a), c = 0;;) {
+    if(c < b) {
+      var d = a[c], e = Game.as(d, "\ufdd0'trippable"), d = Game.as(d, "\ufdd0'respawn");
+      cljs.core.truth_(e["\ufdd0'active"]) && (e = Game.as(e["\ufdd0'target"], "\ufdd0'spawn"), e["\ufdd0'x"] = d["\ufdd0'x"], e["\ufdd0'y"] = d["\ufdd0'y"]);
+      c += 1
+    }else {
+      return null
+    }
+  }
+};
+game.systems.health.func_activates = function(a) {
+  for(var b = cljs.core.count.call(null, a), c = 0;;) {
+    if(c < b) {
+      var d = a[c], e = Game.as(d, "\ufdd0'trippable"), d = Game.as(d, "\ufdd0'func-activate");
+      cljs.core.truth_(e["\ufdd0'active"]) && d["\ufdd0'fn"].call(null);
+      c += 1
+    }else {
+      return null
+    }
+  }
+};
+game.levels.intro = {};
+game.renderers.render_ground = function(a) {
+  var b = Game.as(a, "\ufdd0'position"), a = Game.as(a, "\ufdd0'dimensions");
+  game.util.brush.fillStyle("#666");
+  return game.util.brush.rect(game.lib.core._GT__LT_.call(null, game.util.adjust_center.call(null, b, a), a))
+};
+game.levels.intro.level = function() {
+  return cljs.core.PersistentVector.fromArray(["\ufdd0'background", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.entities.background.render_normal, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.backing_layer.call(null), game.comps.position.call(null, 250, 250, 0), game.comps.dimensions.call(null, 2E3, 1500)], !0), "\ufdd0'camera", cljs.core.PersistentVector.fromArray([game.comps.position.call(null, 0, 0), game.comps.dimensions.call(null, 500, 500), game.comps.camera.call(null)], !0), "\ufdd0'player", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.draw_image, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 250, 330, 0), game.comps.dimensions.call(null, 57, 70), game.comps.keyboard.call(null), game.comps.chroma.call(null, game.systems.chroma.color), game.comps.animated.call(null, "\ufdd0'standing-right"), game.comps.facing.call(null), game.comps.synced.call(null), game.comps.blocked.call(null), game.comps.player.call(null), game.comps.points.call(null), game.comps.spawn.call(null, 250, 330), game.comps.health.call(null), game.comps.player_actions.call(null), game.comps.jump.call(null), 
+  game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'fixedRotation", "\ufdd0'allowSleep"], {"\ufdd0'fixedRotation":!0, "\ufdd0'allowSleep":!1}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'restitution"], {"\ufdd0'w":25, "\ufdd0'h":70, "\ufdd0'restitution":0})), game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject("\ufdd0'w \ufdd0'h \ufdd0'x \ufdd0'y \ufdd0'density \ufdd0'data \ufdd0'sensor".split(" "), 
+  {"\ufdd0'w":5, "\ufdd0'h":67, "\ufdd0'x":-12, "\ufdd0'y":0, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'left-side", "\ufdd0'sensor":!0})), game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject("\ufdd0'w \ufdd0'h \ufdd0'x \ufdd0'y \ufdd0'density \ufdd0'data \ufdd0'sensor".split(" "), {"\ufdd0'w":5, "\ufdd0'h":67, "\ufdd0'x":12, "\ufdd0'y":0, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'right-side", "\ufdd0'sensor":!0})), game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject("\ufdd0'w \ufdd0'h \ufdd0'x \ufdd0'y \ufdd0'density \ufdd0'data \ufdd0'sensor".split(" "), 
+  {"\ufdd0'w":15, "\ufdd0'h":10, "\ufdd0'x":0, "\ufdd0'y":35, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'foot", "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'hint", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_hint, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.hint.call(null, "This is you."), game.comps.object_layer.call(null), game.comps.position.call(null, 250, 300), game.comps.dimensions.call(null, 70, 80), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":200, "\ufdd0'h":200, "\ufdd0'sensor":!0}))], 
+  !0))], !0), "\ufdd0'hint", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_hint, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.hint.call(null, "Use the arrows to move. ->"), game.comps.object_layer.call(null), game.comps.position.call(null, 250, 300), game.comps.dimensions.call(null, 150, -290), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":200, "\ufdd0'h":200, 
+  "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'hint", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_hint, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.hint.call(null, "Use z to chromashift."), game.comps.object_layer.call(null), game.comps.position.call(null, 500, 300), game.comps.dimensions.call(null, 150, -290), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":300, "\ufdd0'h":200, 
+  "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'hint", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_hint, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.hint.call(null, "Use space to jump."), game.comps.object_layer.call(null), game.comps.position.call(null, 850, 300), game.comps.dimensions.call(null, 150, -290), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":300, "\ufdd0'h":200, 
+  "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'hint", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_hint, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.hint.call(null, "<- get this"), game.comps.object_layer.call(null), game.comps.position.call(null, 890, 215), game.comps.dimensions.call(null, 0, 0)], !0), "\ufdd0'goal", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_goal, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.func_activate.call(null, game.flow.menu), game.comps.single_use.call(null), game.comps.object_layer.call(null), game.comps.position.call(null, 850, 200, 0), game.comps.dimensions.call(null, 95, 85), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], 
+  {"\ufdd0'w":95, "\ufdd0'h":85, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 600, 300, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.comps.dimensions.call(null, 10, 200), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":10, "\ufdd0'h":150}))], 
+  !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 650, 400, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 1200, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":1200, "\ufdd0'h":10}))], !0))], !0)], !0)
+};
 game.systems.camera = {};
 game.systems.camera.adjust_camera = function() {
   var a = cljs.core.first.call(null, game.lib.core.all_e.call(null, "\ufdd0'camera"));
@@ -13873,7 +14489,7 @@ game.systems.camera.follow_player = function(a, b) {
   }
 };
 game.systems.camera.renderer = function(a) {
-  game.util.brush.clearRect({"\ufdd0'w":500, "\ufdd0'h":500});
+  game.util.brush.clearRect({"\ufdd0'w":game.util.width, "\ufdd0'h":game.util.height});
   for(var b = cljs.core.count.call(null, game.lib.core.all_e.call(null, "\ufdd0'backing-layer")), c = 0;;) {
     if(c < b) {
       var d = game.lib.core.all_e.call(null, "\ufdd0'backing-layer")[c], e = Game.as(d, "\ufdd0'renderable");
@@ -13915,6 +14531,748 @@ game.systems.camera.restore = function() {
     }
   }
 };
+game.levels.first = {};
+game.renderers.render_ground = function(a) {
+  var b = Game.as(a, "\ufdd0'position"), a = Game.as(a, "\ufdd0'dimensions");
+  game.util.brush.fillStyle("#666");
+  return game.util.brush.rect(game.lib.core._GT__LT_.call(null, game.util.adjust_center.call(null, b, a), a))
+};
+game.levels.first.level = function() {
+  return cljs.core.concat.call(null, cljs.core.PersistentVector.fromArray(["\ufdd0'background", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.entities.background.render_normal, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.backing_layer.call(null), game.comps.position.call(null, 250, 250, 0), game.comps.dimensions.call(null, 2E3, 1500)], !0), "\ufdd0'camera", cljs.core.PersistentVector.fromArray([game.comps.position.call(null, 0, 0), game.comps.dimensions.call(null, 500, 500), game.comps.camera.call(null)], !0), "\ufdd0'player", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.draw_image, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 20, 300, 0), game.comps.dimensions.call(null, 57, 70), game.comps.keyboard.call(null), game.comps.chroma.call(null, game.systems.chroma.color), game.comps.animated.call(null, "\ufdd0'standing-right"), game.comps.facing.call(null), game.comps.synced.call(null), game.comps.blocked.call(null), game.comps.player.call(null), game.comps.points.call(null), game.comps.spawn.call(null, 20, 300), game.comps.health.call(null), game.comps.player_actions.call(null), game.comps.jump.call(null), 
+  game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'fixedRotation", "\ufdd0'allowSleep"], {"\ufdd0'fixedRotation":!0, "\ufdd0'allowSleep":!1}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'restitution"], {"\ufdd0'w":25, "\ufdd0'h":70, "\ufdd0'restitution":0})), game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject("\ufdd0'w \ufdd0'h \ufdd0'x \ufdd0'y \ufdd0'density \ufdd0'data \ufdd0'sensor".split(" "), 
+  {"\ufdd0'w":5, "\ufdd0'h":67, "\ufdd0'x":-12, "\ufdd0'y":0, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'left-side", "\ufdd0'sensor":!0})), game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject("\ufdd0'w \ufdd0'h \ufdd0'x \ufdd0'y \ufdd0'density \ufdd0'data \ufdd0'sensor".split(" "), {"\ufdd0'w":5, "\ufdd0'h":67, "\ufdd0'x":12, "\ufdd0'y":0, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'right-side", "\ufdd0'sensor":!0})), game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject("\ufdd0'w \ufdd0'h \ufdd0'x \ufdd0'y \ufdd0'density \ufdd0'data \ufdd0'sensor".split(" "), 
+  {"\ufdd0'w":15, "\ufdd0'h":10, "\ufdd0'x":0, "\ufdd0'y":35, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'foot", "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'respawn", cljs.core.PersistentVector.fromArray([game.comps.trippable.call(null), game.comps.respawn.call(null, 600, 330), game.comps.position.call(null, 600, 300), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, 
+  cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":200, "\ufdd0'h":200, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 10, 400, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 400, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":400, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
+  function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 300, 200, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 10, 100), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":10, "\ufdd0'h":100}))], 
+  !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 500, 400, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 300, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":300, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
+  function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 700, 300, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 100, 10), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":100, "\ufdd0'h":10}))], 
+  !0))], !0), "\ufdd0'bounce", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.terrain_layer.call(null), game.comps.bouncy.call(null), game.comps.position.call(null, 700, 290, 0), game.comps.dimensions.call(null, 40, 2), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], 
+  {"\ufdd0'w":40, "\ufdd0'h":2, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 1200, 200, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 400, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":400, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
+  function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 1500, 400, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 200, 10), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":200, "\ufdd0'h":10}))], 
+  !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 1800, 300, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 100, 10), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":100, "\ufdd0'h":10}))], 
+  !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 2100, 200, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 150, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":150, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'mine", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
+  function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_mine, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.single_use.call(null), game.comps.deadly.call(null), game.comps.position.call(null, 2100, 187, 0), game.comps.dimensions.call(null, 30, 15), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", 
+  "\ufdd0'h"], {"\ufdd0'w":30, "\ufdd0'h":15}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 2550, 300, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 400, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":400, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'respawn", cljs.core.PersistentVector.fromArray([game.comps.trippable.call(null), 
+  game.comps.respawn.call(null, 2550, 230), game.comps.position.call(null, 2550, 250), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":200, "\ufdd0'h":200, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'bounce", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.terrain_layer.call(null), game.comps.bouncy.call(null), game.comps.position.call(null, 2710, 290, 0), game.comps.dimensions.call(null, 80, 2), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":80, "\ufdd0'h":2, "\ufdd0'sensor":!0}))], 
+  !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 2950, 200, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 100, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":100, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
+  function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 3100, -25, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 10, 500), game.comps.chroma_activated.call(null, game.systems.chroma.opponent_color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":10, "\ufdd0'h":500}))], 
+  !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 3100, 350, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 200, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":200, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
+  function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_ground, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.position.call(null, 3600, 250, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 500, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":500, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'mine", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
+  function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_mine, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.single_use.call(null), game.comps.deadly.call(null), game.comps.position.call(null, 3500, 237, 0), game.comps.dimensions.call(null, 30, 15), game.comps.chroma_activated.call(null, game.systems.chroma.opponent_color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", 
+  "\ufdd0'h"], {"\ufdd0'w":30, "\ufdd0'h":15}))], !0))], !0), "\ufdd0'mine", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_mine, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.single_use.call(null), game.comps.deadly.call(null), game.comps.position.call(null, 3585, 237, 0), game.comps.dimensions.call(null, 30, 15), game.comps.chroma_activated.call(null, game.systems.chroma.opponent_color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", 
+  "\ufdd0'h"], {"\ufdd0'w":30, "\ufdd0'h":15}))], !0))], !0), "\ufdd0'mine", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_mine, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.single_use.call(null), game.comps.deadly.call(null), game.comps.position.call(null, 3670, 237, 0), game.comps.dimensions.call(null, 30, 15), game.comps.chroma_activated.call(null, game.systems.chroma.opponent_color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", 
+  "\ufdd0'h"], {"\ufdd0'w":30, "\ufdd0'h":15}))], !0))], !0), "\ufdd0'mine", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_mine, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.single_use.call(null), game.comps.deadly.call(null), game.comps.position.call(null, 3755, 237, 0), game.comps.dimensions.call(null, 30, 15), game.comps.chroma_activated.call(null, game.systems.chroma.opponent_color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", 
+  "\ufdd0'h"], {"\ufdd0'w":30, "\ufdd0'h":15}))], !0))], !0), "\ufdd0'goal", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_goal, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.func_activate.call(null, game.flow.end), game.comps.single_use.call(null), game.comps.object_layer.call(null), game.comps.position.call(null, 3950, 40, 0), game.comps.dimensions.call(null, 95, 85), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], 
+  {"\ufdd0'w":95, "\ufdd0'h":85, "\ufdd0'sensor":!0}))], !0))], !0)], !0), function() {
+    var a = game.comps.pos_offset;
+    try {
+      return game.comps.pos_offset = game.util.offset, cljs.core.PersistentVector.fromArray(["\ufdd0'other-player", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.draw_image, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.position.call(null, 20, 300, 0), game.comps.dimensions.call(null, 25, 70), game.comps.chroma.call(null, game.systems.chroma.opponent_color), game.comps.player.call(null), game.comps.animated.call(null, "\ufdd0'standing-right"), game.comps.blocked.call(null), game.comps.opponent.call(null), game.comps.facing.call(null), game.comps.points.call(null), game.comps.spawn.call(null, 20, 300), game.comps.health.call(null), game.comps.player_actions.call(null), game.comps.jump.call(null), 
+      game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'fixedRotation", "\ufdd0'allowSleep"], {"\ufdd0'fixedRotation":!0, "\ufdd0'allowSleep":!1}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":25, "\ufdd0'h":70})), game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject("\ufdd0'w \ufdd0'h \ufdd0'x \ufdd0'y \ufdd0'density \ufdd0'data \ufdd0'sensor".split(" "), {"\ufdd0'w":5, 
+      "\ufdd0'h":67, "\ufdd0'x":-12, "\ufdd0'y":0, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'left-side", "\ufdd0'sensor":!0})), game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject("\ufdd0'w \ufdd0'h \ufdd0'x \ufdd0'y \ufdd0'density \ufdd0'data \ufdd0'sensor".split(" "), {"\ufdd0'w":5, "\ufdd0'h":67, "\ufdd0'x":12, "\ufdd0'y":0, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'right-side", "\ufdd0'sensor":!0})), game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject("\ufdd0'w \ufdd0'h \ufdd0'x \ufdd0'y \ufdd0'density \ufdd0'data \ufdd0'sensor".split(" "), 
+      {"\ufdd0'w":15, "\ufdd0'h":10, "\ufdd0'x":0, "\ufdd0'y":35, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'foot", "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'respawn", cljs.core.PersistentVector.fromArray([game.comps.trippable.call(null), game.comps.respawn.call(null, 600, 330), game.comps.position.call(null, 600, 300), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, 
+      cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":200, "\ufdd0'h":200, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_ground, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.position.call(null, 10, 400, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 400, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":400, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
+      function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.position.call(null, 300, 200, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 10, 100), game.comps.chroma_activated.call(null, game.systems.chroma.opponent_color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":10, "\ufdd0'h":100}))], 
+      !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_ground, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.position.call(null, 500, 400, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 300, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":300, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
+      function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.position.call(null, 700, 300, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 100, 10), game.comps.chroma_activated.call(null, game.systems.chroma.opponent_color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":100, "\ufdd0'h":10}))], 
+      !0))], !0), "\ufdd0'bounce", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.trippable.call(null), game.comps.terrain_layer.call(null), game.comps.bouncy.call(null), game.comps.position.call(null, 700, 290, 0), game.comps.dimensions.call(null, 40, 2), game.comps.chroma_activated.call(null, game.systems.chroma.opponent_color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", 
+      "\ufdd0'sensor"], {"\ufdd0'w":40, "\ufdd0'h":2, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_ground, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.position.call(null, 1200, 200, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 400, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":400, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
+      function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.position.call(null, 1500, 400, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 200, 10), game.comps.chroma_activated.call(null, game.systems.chroma.opponent_color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":200, "\ufdd0'h":10}))], 
+      !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.position.call(null, 1800, 300, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 100, 10), game.comps.chroma_activated.call(null, game.systems.chroma.opponent_color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":100, "\ufdd0'h":10}))], 
+      !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_ground, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.position.call(null, 2100, 200, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 150, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":150, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'mine", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
+      function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_mine, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.single_use.call(null), game.comps.deadly.call(null), game.comps.position.call(null, 2100, 187, 0), game.comps.dimensions.call(null, 30, 15), game.comps.chroma_activated.call(null, game.systems.chroma.opponent_color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", 
+      "\ufdd0'h"], {"\ufdd0'w":30, "\ufdd0'h":15}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_ground, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.position.call(null, 2550, 300, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 400, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":400, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'respawn", cljs.core.PersistentVector.fromArray([game.comps.trippable.call(null), 
+      game.comps.respawn.call(null, 2550, 230), game.comps.position.call(null, 2550, 250), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":200, "\ufdd0'h":200, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'bounce", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
+      function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_ground, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.trippable.call(null), game.comps.terrain_layer.call(null), game.comps.bouncy.call(null), game.comps.position.call(null, 2710, 290, 0), game.comps.dimensions.call(null, 80, 2), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":80, "\ufdd0'h":2, "\ufdd0'sensor":!0}))], 
+      !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_ground, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.position.call(null, 2950, 200, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 100, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":100, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
+      function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.position.call(null, 3100, -25, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 10, 500), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":10, "\ufdd0'h":500}))], 
+      !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_ground, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.position.call(null, 3100, 350, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 200, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":200, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
+      function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_ground, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.position.call(null, 3600, 250, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 500, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":500, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'mine", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
+      function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_mine, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.single_use.call(null), game.comps.deadly.call(null), game.comps.position.call(null, 3500, 237, 0), game.comps.dimensions.call(null, 30, 15), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", 
+      "\ufdd0'h"], {"\ufdd0'w":30, "\ufdd0'h":15}))], !0))], !0), "\ufdd0'mine", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_mine, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.single_use.call(null), game.comps.deadly.call(null), game.comps.position.call(null, 3585, 237, 0), game.comps.dimensions.call(null, 30, 15), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", 
+      "\ufdd0'h"], {"\ufdd0'w":30, "\ufdd0'h":15}))], !0))], !0), "\ufdd0'mine", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_mine, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.single_use.call(null), game.comps.deadly.call(null), game.comps.position.call(null, 3670, 237, 0), game.comps.dimensions.call(null, 30, 15), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", 
+      "\ufdd0'h"], {"\ufdd0'w":30, "\ufdd0'h":15}))], !0))], !0), "\ufdd0'mine", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_mine, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.single_use.call(null), game.comps.deadly.call(null), game.comps.position.call(null, 3755, 237, 0), game.comps.dimensions.call(null, 30, 15), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", 
+      "\ufdd0'h"], {"\ufdd0'w":30, "\ufdd0'h":15}))], !0))], !0), "\ufdd0'goal", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+        var a = function(a) {
+          return cljs.core.apply.call(null, game.renderers.render_goal, a)
+        }, c = function(c) {
+          var e = null;
+          goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+          return a.call(this, e)
+        };
+        c.cljs$lang$maxFixedArity = 0;
+        c.cljs$lang$applyTo = function(c) {
+          c = cljs.core.seq(c);
+          return a(c)
+        };
+        c.cljs$lang$arity$variadic = a;
+        return c
+      }()), game.comps.trippable.call(null), game.comps.single_use.call(null), game.comps.object_layer.call(null), game.comps.position.call(null, 3950, 40, 0), game.comps.dimensions.call(null, 95, 85), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":95, "\ufdd0'h":85, "\ufdd0'sensor":!0}))], 
+      !0))], !0)], !0)
+    }finally {
+      game.comps.pos_offset = a
+    }
+  }())
+};
 game.lib.dev = {};
 game.lib.dev.stats = new Stats;
 game.lib.dev.add_stats = function() {
@@ -13935,18 +15293,20 @@ game.systems.moveable.foot_QMARK_ = function(a, b) {
 game.systems.moveable.on_foot = function(a, b) {
   var c = game.systems.moveable.foot_QMARK_.call(null, a, b);
   if(cljs.core.truth_(c)) {
-    var d = cljs.core.nth.call(null, c, 0, null);
-    cljs.core.nth.call(null, c, 1, null);
-    return Game.as(game.lib.physics.fix__GT_ent.call(null, d), "\ufdd0'jump")["\ufdd0'ground"] = !0
+    var d = cljs.core.nth.call(null, c, 0, null), c = cljs.core.nth.call(null, c, 1, null);
+    if(cljs.core.truth_(game.lib.core.has_QMARK_.call(null, game.lib.physics.fix__GT_ent.call(null, c), "\ufdd0'solid"))) {
+      return d = Game.as(game.lib.physics.fix__GT_ent.call(null, d), "\ufdd0'jump"), d["\ufdd0'ground-count"] += 1, d["\ufdd0'ground"] = !0
+    }
   }
   return null
 };
 game.systems.moveable.off_foot = function(a, b) {
   var c = game.systems.moveable.foot_QMARK_.call(null, a, b);
   if(cljs.core.truth_(c)) {
-    var d = cljs.core.nth.call(null, c, 0, null);
-    cljs.core.nth.call(null, c, 1, null);
-    return Game.as(game.lib.physics.fix__GT_ent.call(null, d), "\ufdd0'jump")["\ufdd0'ground"] = !1
+    var d = cljs.core.nth.call(null, c, 0, null), c = cljs.core.nth.call(null, c, 1, null);
+    if(cljs.core.truth_(game.lib.core.has_QMARK_.call(null, game.lib.physics.fix__GT_ent.call(null, c), "\ufdd0'solid"))) {
+      return d = Game.as(game.lib.physics.fix__GT_ent.call(null, d), "\ufdd0'jump"), d["\ufdd0'ground-count"] -= 1, cljs.core._EQ_.call(null, d["\ufdd0'ground-count"], 0) ? d["\ufdd0'ground"] = !1 : null
+    }
   }
   return null
 };
@@ -14056,106 +15416,15 @@ game.systems.moveable.bounce = function(a) {
   for(var b = cljs.core.count.call(null, a), c = 0;;) {
     if(c < b) {
       var d = a[c], e = Game.as(d, "\ufdd0'trippable"), d = Game.as(d, "\ufdd0'bouncy");
-      0 < d["\ufdd0'count"] ? d["\ufdd0'count"] -= 1 : cljs.core.truth_(e["\ufdd0'active"]) && (e["\ufdd0'active"] = !1, d["\ufdd0'count"] = 20, game.lib.physics.impulse.call(null, e["\ufdd0'target"], 0, -70));
+      0 < d["\ufdd0'count"] ? d["\ufdd0'count"] -= 1 : cljs.core.truth_(e["\ufdd0'active"]) && (game.lib.core.as.call(null, e["\ufdd0'target"], "\ufdd0'jump")["\ufdd0'count"] = 15, d["\ufdd0'count"] = 20, game.lib.physics.impulse.call(null, e["\ufdd0'target"], 0, -70));
       c += 1
     }else {
       return null
     }
   }
 };
-game.entities = {};
-game.entities.background = {};
-game.entities.background.render_normal = function(a) {
-  var b = Game.as(a, "\ufdd0'position"), a = Game.as(a, "\ufdd0'dimensions");
-  game.util.brush.fillStyle("black");
-  return game.util.brush.rect(game.lib.core._GT__LT_.call(null, game.util.adjust_center.call(null, b, a), a))
-};
-game.levels = {};
 game.levels.opening = {};
-game.levels.opening.__GT_color = cljs.core.ObjMap.fromObject(["\ufdd0'blue", "\ufdd0'green"], {"\ufdd0'blue":"#77f", "\ufdd0'green":"#50f050"});
-game.levels.opening.load_clear = function(a) {
-  game.lib.physics.clear_BANG_.call(null);
-  return game.lib.core.load_scene.call(null, a)
-};
-game.levels.opening.render_player = function(a) {
-  var b = Game.as(a, "\ufdd0'position"), c = Game.as(a, "\ufdd0'dimensions"), a = Game.as(a, "\ufdd0'chroma"), a = cljs.core.truth_(a["\ufdd0'active"]) ? game.levels.opening.__GT_color.call(null, a["\ufdd0'color"]) : "#666";
-  game.util.brush.fillStyle(a);
-  return game.util.brush.rect(game.lib.core._GT__LT_.call(null, game.util.adjust_center.call(null, b, c), c))
-};
-game.levels.opening.render_ground = function(a) {
-  var b = Game.as(a, "\ufdd0'position"), a = Game.as(a, "\ufdd0'dimensions");
-  game.util.brush.fillStyle("#666");
-  return game.util.brush.rect(game.lib.core._GT__LT_.call(null, game.util.adjust_center.call(null, b, a), a))
-};
-game.levels.opening.render_chroma_ground = function(a) {
-  var b = Game.as(a, "\ufdd0'position"), c = Game.as(a, "\ufdd0'dimensions"), a = Game.as(a, "\ufdd0'chroma-activated");
-  game.util.brush.save();
-  cljs.core.truth_(a["\ufdd0'active"]) || game.util.brush.opacity(0.5);
-  game.util.brush.fillStyle(game.levels.opening.__GT_color.call(null, a["\ufdd0'color"]));
-  game.util.brush.rect(game.lib.core._GT__LT_.call(null, game.util.adjust_center.call(null, b, c), c));
-  return game.util.brush.restore()
-};
-game.levels.opening.render_mine = function(a) {
-  var b = Game.as(a, "\ufdd0'position"), c = Game.as(a, "\ufdd0'dimensions"), a = Game.as(a, "\ufdd0'chroma-activated");
-  game.util.brush.save();
-  cljs.core.truth_(a["\ufdd0'active"]) || game.util.brush.opacity(0.5);
-  game.util.brush.fillStyle("red");
-  game.util.brush.rect(game.lib.core._GT__LT_.call(null, game.util.adjust_center.call(null, b, c), c));
-  return game.util.brush.restore()
-};
-game.levels.opening.render_chromaton = function(a) {
-  var b = Game.as(a, "\ufdd0'position"), a = Game.as(a, "\ufdd0'dimensions");
-  game.util.brush.fillStyle("#fff");
-  return game.util.brush.rect(game.lib.core._GT__LT_.call(null, game.util.adjust_center.call(null, b, a), a))
-};
-game.levels.opening.render_score = function(a) {
-  var b = cljs.core.first.call(null, game.lib.core.all_e.call(null, "\ufdd0'player")), a = Game.as(a, "\ufdd0'position"), b = Game.as(b, "\ufdd0'points");
-  game.util.brush.fillStyle("#fff");
-  game.util.brush.font("12pt Helvetica");
-  return game.util.brush.text(a, "" + cljs.core.str(b["\ufdd0'points"]))
-};
-game.levels.opening.s = game.lib.assets.load_set.call(null, "\ufdd0'test", cljs.core.ObjMap.fromObject(["\ufdd0'running", "\ufdd0'standing", "\ufdd0'jumping", "\ufdd0'death"], {"\ufdd0'running":cljs.core.ObjMap.fromObject(["\ufdd0'type", "\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", "\ufdd0'src":"/assets/img/running.png"}), "\ufdd0'standing":cljs.core.ObjMap.fromObject(["\ufdd0'type", "\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", "\ufdd0'src":"/assets/img/standing.png"}), "\ufdd0'jumping":cljs.core.ObjMap.fromObject(["\ufdd0'type", 
-"\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", "\ufdd0'src":"/assets/img/jumping.png"}), "\ufdd0'death":cljs.core.ObjMap.fromObject(["\ufdd0'type", "\ufdd0'src"], {"\ufdd0'type":"\ufdd0'image", "\ufdd0'src":"/assets/img/death.png"})}), function() {
-  return cljs.core.List.EMPTY
-});
-cljs.core.identity.call(null, (new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'standing")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.levels.opening.s)))));
-game.levels.opening.animations = cljs.core.ObjMap.fromObject("\ufdd0'jump-left \ufdd0'falling-left \ufdd0'running-right \ufdd0'standing-right \ufdd0'jump-right \ufdd0'falling-right \ufdd0'running-left \ufdd0'standing-left \ufdd0'death".split(" "), {"\ufdd0'jump-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":1, "\ufdd0'speed":15, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, 
-(new cljs.core.Keyword("\ufdd0'jumping")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.levels.opening.s)))), "\ufdd0'x":0, "\ufdd0'y":70, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'falling-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":2, "\ufdd0'speed":5, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'jumping")).call(null, 
-(new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.levels.opening.s)))), "\ufdd0'x":114, "\ufdd0'y":70, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'running-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":11, "\ufdd0'speed":3, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'running")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, 
-cljs.core.deref.call(null, game.levels.opening.s)))), "\ufdd0'x":0, "\ufdd0'y":0, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'standing-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":0, "\ufdd0'speed":0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'standing")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.levels.opening.s)))), 
-"\ufdd0'x":0, "\ufdd0'y":0, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'jump-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":1, "\ufdd0'speed":15, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'jumping")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.levels.opening.s)))), "\ufdd0'x":0, 
-"\ufdd0'y":0, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'falling-right":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":2, "\ufdd0'speed":5, "\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'jumping")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.levels.opening.s)))), "\ufdd0'x":114, "\ufdd0'y":0, 
-"\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'running-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":11, "\ufdd0'speed":3, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'running")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.levels.opening.s)))), "\ufdd0'x":0, "\ufdd0'y":70, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'standing-left":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), 
-{"\ufdd0'frames":0, "\ufdd0'speed":0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'standing")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.levels.opening.s)))), "\ufdd0'x":0, "\ufdd0'y":70, "\ufdd0'w":57, "\ufdd0'h":70}), "\ufdd0'death":cljs.core.ObjMap.fromObject("\ufdd0'frames \ufdd0'speed \ufdd0'freeze \ufdd0'img \ufdd0'x \ufdd0'y \ufdd0'w \ufdd0'h".split(" "), {"\ufdd0'frames":10, "\ufdd0'speed":3, 
-"\ufdd0'freeze":!0, "\ufdd0'img":(new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'death")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.levels.opening.s)))), "\ufdd0'x":0, "\ufdd0'y":0, "\ufdd0'w":68, "\ufdd0'h":93})});
-game.levels.opening.animate = function(a, b) {
-  var c = game.levels.opening.animations.call(null, a["\ufdd0'animation"]);
-  cljs.core._EQ_.call(null, 0, a["\ufdd0'count"]) && (a["\ufdd0'frame"] += 1, a["\ufdd0'count"] = (new cljs.core.Keyword("\ufdd0'speed")).call(null, c));
-  (function() {
-    var b = a["\ufdd0'count"] > 0;
-    return b ? a["\ufdd0'frame"] <= (new cljs.core.Keyword("\ufdd0'frames")).call(null, c) : b
-  })() && (a["\ufdd0'count"] -= 1);
-  (function() {
-    var b = a["\ufdd0'frame"] > (new cljs.core.Keyword("\ufdd0'frames")).call(null, c);
-    return b ? cljs.core.not.call(null, (new cljs.core.Keyword("\ufdd0'freeze")).call(null, c)) : b
-  })() && (a["\ufdd0'frame"] = 0);
-  return game.util.brush.clippedImage((new cljs.core.Keyword("\ufdd0'img")).call(null, c), a["\ufdd0'frame"] * (new cljs.core.Keyword("\ufdd0'w")).call(null, c), (new cljs.core.Keyword("\ufdd0'y")).call(null, c), (new cljs.core.Keyword("\ufdd0'w")).call(null, c), (new cljs.core.Keyword("\ufdd0'h")).call(null, c), game.util.adjust_center.call(null, b, {"\ufdd0'hw":(new cljs.core.Keyword("\ufdd0'w")).call(null, c) / 2, "\ufdd0'hh":(new cljs.core.Keyword("\ufdd0'h")).call(null, c) / 2}))
-};
-game.levels.opening.draw_image = function(a) {
-  var b = (new cljs.core.Keyword("\ufdd0'elem")).call(null, (new cljs.core.Keyword("\ufdd0'standing")).call(null, (new cljs.core.Keyword("\ufdd0'items")).call(null, cljs.core.deref.call(null, game.levels.opening.s))));
-  if(cljs.core.truth_(b)) {
-    b = Game.as(a, "\ufdd0'position");
-    Game.as(a, "\ufdd0'renderable");
-    var c = Game.as(a, "\ufdd0'dimensions"), d = Game.as(a, "\ufdd0'animated"), a = Game.as(a, "\ufdd0'chroma");
-    game.util.brush.save();
-    cljs.core.truth_(a["\ufdd0'active"]) || game.util.brush.opacity(0.5);
-    game.levels.opening.animate.call(null, d, b, c);
-    return game.util.brush.restore()
-  }
-  return null
-};
 game.levels.opening.level = function() {
-  console.log(game.systems.chroma.opponent_color);
   return cljs.core.concat.call(null, cljs.core.PersistentVector.fromArray(["\ufdd0'background", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
     var a = function(a) {
       return cljs.core.apply.call(null, game.entities.background.render_normal, a)
@@ -14173,7 +15442,7 @@ game.levels.opening.level = function() {
     return b
   }()), game.comps.backing_layer.call(null), game.comps.position.call(null, 250, 250, 0), game.comps.dimensions.call(null, 2E3, 1500)], !0), "\ufdd0'camera", cljs.core.PersistentVector.fromArray([game.comps.position.call(null, 0, 0), game.comps.dimensions.call(null, 500, 500), game.comps.camera.call(null)], !0), "\ufdd0'score", cljs.core.PersistentVector.fromArray([game.comps.position.call(null, 470, 30), game.comps.overlay_layer.call(null), game.comps.renderable.call(null, function() {
     var a = function(a) {
-      return cljs.core.apply.call(null, game.levels.opening.render_score, a)
+      return cljs.core.apply.call(null, game.renderers.render_score, a)
     }, b = function(b) {
       var d = null;
       goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14188,7 +15457,7 @@ game.levels.opening.level = function() {
     return b
   }())], !0), "\ufdd0'player", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
     var a = function(a) {
-      return cljs.core.apply.call(null, game.levels.opening.draw_image, a)
+      return cljs.core.apply.call(null, game.renderers.draw_image, a)
     }, b = function(b) {
       var d = null;
       goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14206,7 +15475,7 @@ game.levels.opening.level = function() {
   {"\ufdd0'w":5, "\ufdd0'h":67, "\ufdd0'x":-12, "\ufdd0'y":0, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'left-side", "\ufdd0'sensor":!0})), game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject("\ufdd0'w \ufdd0'h \ufdd0'x \ufdd0'y \ufdd0'density \ufdd0'data \ufdd0'sensor".split(" "), {"\ufdd0'w":5, "\ufdd0'h":67, "\ufdd0'x":12, "\ufdd0'y":0, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'right-side", "\ufdd0'sensor":!0})), game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject("\ufdd0'w \ufdd0'h \ufdd0'x \ufdd0'y \ufdd0'density \ufdd0'data \ufdd0'sensor".split(" "), 
   {"\ufdd0'w":15, "\ufdd0'h":10, "\ufdd0'x":0, "\ufdd0'y":35, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'foot", "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'bounce", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
     var a = function(a) {
-      return cljs.core.apply.call(null, game.levels.opening.render_chroma_ground, a)
+      return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
     }, b = function(b) {
       var d = null;
       goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14222,7 +15491,7 @@ game.levels.opening.level = function() {
   }()), game.comps.trippable.call(null), game.comps.terrain_layer.call(null), game.comps.bouncy.call(null), game.comps.position.call(null, 100, 290, 0), game.comps.dimensions.call(null, 40, 2), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], 
   {"\ufdd0'w":40, "\ufdd0'h":2, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'mine", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
     var a = function(a) {
-      return cljs.core.apply.call(null, game.levels.opening.render_chroma_ground, a)
+      return cljs.core.apply.call(null, game.renderers.render_mine, a)
     }, b = function(b) {
       var d = null;
       goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14235,10 +15504,10 @@ game.levels.opening.level = function() {
     };
     b.cljs$lang$arity$variadic = a;
     return b
-  }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.deadly.call(null), game.comps.position.call(null, 100, 390, 0), game.comps.dimensions.call(null, 10, 10), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":10, 
-  "\ufdd0'h":10}))], !0))], !0), "\ufdd0'chromaton", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+  }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.single_use.call(null), game.comps.deadly.call(null), game.comps.position.call(null, 100, 387, 0), game.comps.dimensions.call(null, 30, 15), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", 
+  "\ufdd0'h"], {"\ufdd0'w":30, "\ufdd0'h":15}))], !0))], !0), "\ufdd0'hint", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
     var a = function(a) {
-      return cljs.core.apply.call(null, game.levels.opening.render_chromaton, a)
+      return cljs.core.apply.call(null, game.renderers.render_hint, a)
     }, b = function(b) {
       var d = null;
       goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14251,10 +15520,11 @@ game.levels.opening.level = function() {
     };
     b.cljs$lang$arity$variadic = a;
     return b
-  }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.chromaton.call(null), game.comps.position.call(null, 50, 390, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":10, "\ufdd0'h":10, "\ufdd0'sensor":!0}))], 
+  }()), game.comps.trippable.call(null), game.comps.hint.call(null, "Land mines will kill you."), game.comps.object_layer.call(null), game.comps.position.call(null, -30, 300), game.comps.dimensions.call(null, 200, 80), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":200, "\ufdd0'h":200, 
+  "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'respawn", cljs.core.PersistentVector.fromArray([game.comps.trippable.call(null), game.comps.respawn.call(null, 600, 330), game.comps.position.call(null, 600, 300), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":200, "\ufdd0'h":200, "\ufdd0'sensor":!0}))], 
   !0))], !0), "\ufdd0'chromaton", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
     var a = function(a) {
-      return cljs.core.apply.call(null, game.levels.opening.render_chromaton, a)
+      return cljs.core.apply.call(null, game.renderers.render_chromaton, a)
     }, b = function(b) {
       var d = null;
       goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14267,10 +15537,10 @@ game.levels.opening.level = function() {
     };
     b.cljs$lang$arity$variadic = a;
     return b
-  }()), game.comps.trippable.call(null), game.comps.chromaton.call(null), game.comps.object_layer.call(null), game.comps.position.call(null, 450, 390, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":10, "\ufdd0'h":10, "\ufdd0'sensor":!0}))], 
-  !0))], !0), "\ufdd0'chromaton", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+  }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.chromaton.call(null), game.comps.single_use.call(null), game.comps.position.call(null, 50, 390, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":10, 
+  "\ufdd0'h":10, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'chromaton", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
     var a = function(a) {
-      return cljs.core.apply.call(null, game.levels.opening.render_chromaton, a)
+      return cljs.core.apply.call(null, game.renderers.render_chromaton, a)
     }, b = function(b) {
       var d = null;
       goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14283,10 +15553,10 @@ game.levels.opening.level = function() {
     };
     b.cljs$lang$arity$variadic = a;
     return b
-  }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.chromaton.call(null, 20), game.comps.position.call(null, 550, 390, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":10, "\ufdd0'h":10, "\ufdd0'sensor":!0}))], 
-  !0))], !0), "\ufdd0'chromaton", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+  }()), game.comps.trippable.call(null), game.comps.chromaton.call(null), game.comps.single_use.call(null), game.comps.object_layer.call(null), game.comps.position.call(null, 450, 390, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":10, 
+  "\ufdd0'h":10, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'chromaton", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
     var a = function(a) {
-      return cljs.core.apply.call(null, game.levels.opening.render_chromaton, a)
+      return cljs.core.apply.call(null, game.renderers.render_chromaton, a)
     }, b = function(b) {
       var d = null;
       goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14299,10 +15569,26 @@ game.levels.opening.level = function() {
     };
     b.cljs$lang$arity$variadic = a;
     return b
-  }()), game.comps.trippable.call(null), game.comps.chromaton.call(null), game.comps.object_layer.call(null), game.comps.position.call(null, 650, 390, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":10, "\ufdd0'h":10, "\ufdd0'sensor":!0}))], 
-  !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+  }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.single_use.call(null), game.comps.chromaton.call(null, 20), game.comps.position.call(null, 550, 390, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":10, 
+  "\ufdd0'h":10, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'chromaton", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
     var a = function(a) {
-      return cljs.core.apply.call(null, game.levels.opening.render_ground, a)
+      return cljs.core.apply.call(null, game.renderers.render_chromaton, a)
+    }, b = function(b) {
+      var d = null;
+      goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
+      return a.call(this, d)
+    };
+    b.cljs$lang$maxFixedArity = 0;
+    b.cljs$lang$applyTo = function(b) {
+      b = cljs.core.seq(b);
+      return a(b)
+    };
+    b.cljs$lang$arity$variadic = a;
+    return b
+  }()), game.comps.trippable.call(null), game.comps.chromaton.call(null), game.comps.single_use.call(null), game.comps.object_layer.call(null), game.comps.position.call(null, 650, 390, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":10, 
+  "\ufdd0'h":10, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+    var a = function(a) {
+      return cljs.core.apply.call(null, game.renderers.render_ground, a)
     }, b = function(b) {
       var d = null;
       goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14318,7 +15604,7 @@ game.levels.opening.level = function() {
   }()), game.comps.position.call(null, 10, 400, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 400, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":400, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
   function() {
     var a = function(a) {
-      return cljs.core.apply.call(null, game.levels.opening.render_ground, a)
+      return cljs.core.apply.call(null, game.renderers.render_ground, a)
     }, b = function(b) {
       var d = null;
       goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14334,7 +15620,7 @@ game.levels.opening.level = function() {
   }()), game.comps.position.call(null, 700, 400, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 600, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":600, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
   function() {
     var a = function(a) {
-      return cljs.core.apply.call(null, game.levels.opening.render_chroma_ground, a)
+      return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
     }, b = function(b) {
       var d = null;
       goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14350,7 +15636,7 @@ game.levels.opening.level = function() {
   }()), game.comps.position.call(null, 370, 120, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 10, 100), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":10, "\ufdd0'h":100}))], 
   !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
     var a = function(a) {
-      return cljs.core.apply.call(null, game.levels.opening.render_chroma_ground, a)
+      return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
     }, b = function(b) {
       var d = null;
       goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14366,7 +15652,7 @@ game.levels.opening.level = function() {
   }()), game.comps.position.call(null, 100, 300, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 100, 10), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":100, "\ufdd0'h":10}))], 
   !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
     var a = function(a) {
-      return cljs.core.apply.call(null, game.levels.opening.render_chroma_ground, a)
+      return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
     }, b = function(b) {
       var d = null;
       goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14382,7 +15668,7 @@ game.levels.opening.level = function() {
   }()), game.comps.position.call(null, 300, 500, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 100, 10), game.comps.chroma_activated.call(null, game.systems.chroma.opponent_color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":100, "\ufdd0'h":10}))], 
   !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
     var a = function(a) {
-      return cljs.core.apply.call(null, game.levels.opening.render_chroma_ground, a)
+      return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
     }, b = function(b) {
       var d = null;
       goog.isDef(b) && (d = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14401,7 +15687,7 @@ game.levels.opening.level = function() {
     try {
       return game.comps.pos_offset = game.util.offset, cljs.core.PersistentVector.fromArray(["\ufdd0'other-player", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
         var a = function(a) {
-          return cljs.core.apply.call(null, game.levels.opening.draw_image, a)
+          return cljs.core.apply.call(null, game.renderers.draw_image, a)
         }, c = function(c) {
           var e = null;
           goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14419,7 +15705,7 @@ game.levels.opening.level = function() {
       "\ufdd0'h":67, "\ufdd0'x":-12, "\ufdd0'y":0, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'left-side", "\ufdd0'sensor":!0})), game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject("\ufdd0'w \ufdd0'h \ufdd0'x \ufdd0'y \ufdd0'density \ufdd0'data \ufdd0'sensor".split(" "), {"\ufdd0'w":5, "\ufdd0'h":67, "\ufdd0'x":12, "\ufdd0'y":0, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'right-side", "\ufdd0'sensor":!0})), game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject("\ufdd0'w \ufdd0'h \ufdd0'x \ufdd0'y \ufdd0'density \ufdd0'data \ufdd0'sensor".split(" "), 
       {"\ufdd0'w":15, "\ufdd0'h":10, "\ufdd0'x":0, "\ufdd0'y":35, "\ufdd0'density":0, "\ufdd0'data":"\ufdd0'foot", "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'bounce", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
         var a = function(a) {
-          return cljs.core.apply.call(null, game.levels.opening.render_chroma_ground, a)
+          return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
         }, c = function(c) {
           var e = null;
           goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14435,7 +15721,7 @@ game.levels.opening.level = function() {
       }()), game.comps.trippable.call(null), game.comps.terrain_layer.call(null), game.comps.bouncy.call(null), game.comps.position.call(null, 100, 290, 0), game.comps.dimensions.call(null, 40, 2), game.comps.chroma_activated.call(null, game.systems.chroma.opponent_color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", 
       "\ufdd0'sensor"], {"\ufdd0'w":40, "\ufdd0'h":2, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'mine", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
         var a = function(a) {
-          return cljs.core.apply.call(null, game.levels.opening.render_chroma_ground, a)
+          return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
         }, c = function(c) {
           var e = null;
           goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14451,7 +15737,7 @@ game.levels.opening.level = function() {
       }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.deadly.call(null), game.comps.position.call(null, 100, 390, 0), game.comps.dimensions.call(null, 10, 10), game.comps.chroma_activated.call(null, game.systems.chroma.opponent_color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], 
       {"\ufdd0'w":10, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'chromaton", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
         var a = function(a) {
-          return cljs.core.apply.call(null, game.levels.opening.render_chromaton, a)
+          return cljs.core.apply.call(null, game.renderers.render_chromaton, a)
         }, c = function(c) {
           var e = null;
           goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14464,10 +15750,10 @@ game.levels.opening.level = function() {
         };
         c.cljs$lang$arity$variadic = a;
         return c
-      }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.chromaton.call(null), game.comps.position.call(null, 50, 390, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":10, "\ufdd0'h":10, "\ufdd0'sensor":!0}))], 
-      !0))], !0), "\ufdd0'chromaton", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+      }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.chromaton.call(null), game.comps.single_use.call(null), game.comps.position.call(null, 50, 390, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":10, 
+      "\ufdd0'h":10, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'chromaton", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
         var a = function(a) {
-          return cljs.core.apply.call(null, game.levels.opening.render_chromaton, a)
+          return cljs.core.apply.call(null, game.renderers.render_chromaton, a)
         }, c = function(c) {
           var e = null;
           goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14480,10 +15766,10 @@ game.levels.opening.level = function() {
         };
         c.cljs$lang$arity$variadic = a;
         return c
-      }()), game.comps.trippable.call(null), game.comps.chromaton.call(null), game.comps.object_layer.call(null), game.comps.position.call(null, 450, 390, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":10, "\ufdd0'h":10, "\ufdd0'sensor":!0}))], 
-      !0))], !0), "\ufdd0'chromaton", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+      }()), game.comps.trippable.call(null), game.comps.chromaton.call(null), game.comps.single_use.call(null), game.comps.object_layer.call(null), game.comps.position.call(null, 450, 390, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":10, 
+      "\ufdd0'h":10, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'chromaton", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
         var a = function(a) {
-          return cljs.core.apply.call(null, game.levels.opening.render_chromaton, a)
+          return cljs.core.apply.call(null, game.renderers.render_chromaton, a)
         }, c = function(c) {
           var e = null;
           goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14496,10 +15782,10 @@ game.levels.opening.level = function() {
         };
         c.cljs$lang$arity$variadic = a;
         return c
-      }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.chromaton.call(null, 20), game.comps.position.call(null, 550, 390, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":10, "\ufdd0'h":10, "\ufdd0'sensor":!0}))], 
-      !0))], !0), "\ufdd0'chromaton", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+      }()), game.comps.trippable.call(null), game.comps.object_layer.call(null), game.comps.chromaton.call(null, 20), game.comps.single_use.call(null), game.comps.position.call(null, 550, 390, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":10, 
+      "\ufdd0'h":10, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'chromaton", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
         var a = function(a) {
-          return cljs.core.apply.call(null, game.levels.opening.render_chromaton, a)
+          return cljs.core.apply.call(null, game.renderers.render_chromaton, a)
         }, c = function(c) {
           var e = null;
           goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14512,10 +15798,10 @@ game.levels.opening.level = function() {
         };
         c.cljs$lang$arity$variadic = a;
         return c
-      }()), game.comps.trippable.call(null), game.comps.chromaton.call(null), game.comps.object_layer.call(null), game.comps.position.call(null, 650, 390, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":10, "\ufdd0'h":10, "\ufdd0'sensor":!0}))], 
-      !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
+      }()), game.comps.trippable.call(null), game.comps.chromaton.call(null), game.comps.single_use.call(null), game.comps.object_layer.call(null), game.comps.position.call(null, 650, 390, 0), game.comps.dimensions.call(null, 10, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h", "\ufdd0'sensor"], {"\ufdd0'w":10, 
+      "\ufdd0'h":10, "\ufdd0'sensor":!0}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
         var a = function(a) {
-          return cljs.core.apply.call(null, game.levels.opening.render_ground, a)
+          return cljs.core.apply.call(null, game.renderers.render_ground, a)
         }, c = function(c) {
           var e = null;
           goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14531,7 +15817,7 @@ game.levels.opening.level = function() {
       }()), game.comps.position.call(null, 10, 400, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 400, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":400, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
       function() {
         var a = function(a) {
-          return cljs.core.apply.call(null, game.levels.opening.render_ground, a)
+          return cljs.core.apply.call(null, game.renderers.render_ground, a)
         }, c = function(c) {
           var e = null;
           goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14547,7 +15833,7 @@ game.levels.opening.level = function() {
       }()), game.comps.position.call(null, 700, 400, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 600, 10), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":600, "\ufdd0'h":10}))], !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, 
       function() {
         var a = function(a) {
-          return cljs.core.apply.call(null, game.levels.opening.render_chroma_ground, a)
+          return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
         }, c = function(c) {
           var e = null;
           goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14563,7 +15849,7 @@ game.levels.opening.level = function() {
       }()), game.comps.position.call(null, 370, 120, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 10, 100), game.comps.chroma_activated.call(null, game.systems.chroma.opponent_color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":10, "\ufdd0'h":100}))], 
       !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
         var a = function(a) {
-          return cljs.core.apply.call(null, game.levels.opening.render_chroma_ground, a)
+          return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
         }, c = function(c) {
           var e = null;
           goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14579,7 +15865,7 @@ game.levels.opening.level = function() {
       }()), game.comps.position.call(null, 100, 300, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 100, 10), game.comps.chroma_activated.call(null, game.systems.chroma.opponent_color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":100, "\ufdd0'h":10}))], 
       !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
         var a = function(a) {
-          return cljs.core.apply.call(null, game.levels.opening.render_chroma_ground, a)
+          return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
         }, c = function(c) {
           var e = null;
           goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14595,7 +15881,7 @@ game.levels.opening.level = function() {
       }()), game.comps.position.call(null, 300, 500, 0), game.comps.solid.call(null), game.comps.terrain_layer.call(null), game.comps.dimensions.call(null, 100, 10), game.comps.chroma_activated.call(null, game.systems.chroma.color), game.lib.physics.simulate.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'static"], {"\ufdd0'static":!0}), cljs.core.PersistentVector.fromArray([game.lib.physics.box_fixture.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'w", "\ufdd0'h"], {"\ufdd0'w":100, "\ufdd0'h":10}))], 
       !0))], !0), "\ufdd0'platform", cljs.core.PersistentVector.fromArray([game.comps.renderable.call(null, function() {
         var a = function(a) {
-          return cljs.core.apply.call(null, game.levels.opening.render_chroma_ground, a)
+          return cljs.core.apply.call(null, game.renderers.render_chroma_ground, a)
         }, c = function(c) {
           var e = null;
           goog.isDef(c) && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 0), 0));
@@ -14622,15 +15908,17 @@ game.main.game_loop = function game_loop(b, c) {
   game.lib.physics.add_BAR_rem.call(null);
   game.systems.moveable.keyboard.call(null, game.lib.core.all_e.call(null, "\ufdd0'keyboard"));
   game.systems.moveable.move.call(null, game.lib.core.all_e.call(null, "\ufdd0'player-actions"));
+  game.systems.moveable.bounce.call(null, game.lib.core.all_e.call(null, "\ufdd0'bouncy"));
   game.systems.moveable.jump.call(null, game.lib.core.all_e.call(null, "\ufdd0'player-actions"));
   game.systems.moveable.animate_actions.call(null, game.lib.core.all_e.call(null, "\ufdd0'player-actions"));
-  game.systems.moveable.bounce.call(null, game.lib.core.all_e.call(null, "\ufdd0'bouncy"));
   game.systems.chroma.chroma.call(null, game.lib.core.all_e.call(null, "\ufdd0'chroma"));
   game.systems.chroma.chroma_physics.call(null, game.lib.core.all_e.call(null, "\ufdd0'chroma-activated"));
   game.systems.chroma.chromatons.call(null, game.lib.core.all_e.call(null, "\ufdd0'chromaton"));
   game.systems.health.death_conditions.call(null, game.lib.core.all_e.call(null, "\ufdd0'health"));
   game.systems.health.kill.call(null, game.lib.core.all_e.call(null, "\ufdd0'health"));
+  game.systems.health.respawn_point.call(null, game.lib.core.all_e.call(null, "\ufdd0'respawn"));
   game.systems.health.spawn.call(null, game.lib.core.all_e.call(null, "\ufdd0'spawn"));
+  game.systems.health.single_use.call(null, game.lib.core.all_e.call(null, "\ufdd0'single-use"));
   game.systems.sync.sync_actions.call(null, game.lib.core.all_e.call(null, "\ufdd0'synced"));
   game.lib.physics.step.call(null);
   var d = cljs.core.first.call(null, game.lib.core.all_e.call(null, "\ufdd0'player"));
@@ -14641,15 +15929,18 @@ game.main.game_loop = function game_loop(b, c) {
   }finally {
     game.util.brush = e
   }
-  d = cljs.core.first.call(null, game.lib.core.all_e.call(null, "\ufdd0'opponent"));
-  game.systems.camera.follow_player.call(null, d, game.lib.core.all_e.call(null, "\ufdd0'camera"));
-  e = game.util.brush;
-  try {
-    game.util.brush = c, game.systems.camera.renderer.call(null, d), game.systems.camera.restore.call(null)
-  }finally {
-    game.util.brush = e
+  if(cljs.core.truth_(game.util.opponent_QMARK_)) {
+    d = cljs.core.first.call(null, game.lib.core.all_e.call(null, "\ufdd0'opponent"));
+    game.systems.camera.follow_player.call(null, d, game.lib.core.all_e.call(null, "\ufdd0'camera"));
+    e = game.util.brush;
+    try {
+      game.util.brush = c, game.systems.camera.renderer.call(null, d), game.systems.camera.restore.call(null)
+    }finally {
+      game.util.brush = e
+    }
   }
   game.lib.dev.end.call(null);
+  game.systems.health.func_activates.call(null, game.lib.core.all_e.call(null, "\ufdd0'func-activate"));
   return game.lib.core.frame.call(null, function() {
     return game_loop.call(null, b, c)
   })

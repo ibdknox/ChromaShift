@@ -3,6 +3,7 @@ goog.require('cljs.core');
 goog.require('game.lib.core');
 goog.require('game.util');
 goog.require('game.lib.physics');
+goog.require('game.flow');
 goog.require('game.systems.chroma');
 goog.require('game.util');
 goog.require('game.lib.core');
@@ -28,8 +29,8 @@ var chroma = Game.as(e,"\uFDD0'chroma");
 game.systems.chroma.flip_active.call(null,(data["\uFDD0'color"]),(data["\uFDD0'active"]));
 game.lib.physics.set_position.call(null,e,(game.util.offset + (data["\uFDD0'x"])),(data["\uFDD0'y"]));
 {
-var G__66408 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__66408;
+var G__70828 = (i__2910__auto__ + 1);
+i__2910__auto__ = G__70828;
 continue;
 }
 } else
@@ -41,10 +42,23 @@ break;
 game.systems.sync.sync = (function sync(data){
 return null;
 });
+game.systems.sync.queue = (function queue(){
+return game.systems.sync.emit.call(null,"match",{});
+});
+game.systems.sync.end = (function end(){
+return game.systems.sync.emit.call(null,"end",{});
+});
 game.systems.sync.game_data = (function game_data(data){
 game.systems.chroma.color = (data["\uFDD0'color"]);
 game.systems.chroma.opponent_color = (data["\uFDD0'opponent-color"]);
-return game.lib.core.load_scene.call(null,game.levels.opening.level());
+return game.flow.match_found.call(null,(data["\uFDD0'level"]));
+});
+game.systems.sync.win = (function win(data){
+if(cljs.core.truth_((data["\uFDD0'win"])))
+{return game.flow.win.call(null);
+} else
+{return game.flow.lose.call(null);
+}
 });
 game.systems.sync.sock.on("action",game.systems.sync.action);
 game.systems.sync.sock.on("sync",game.systems.sync.sync);
@@ -52,6 +66,7 @@ game.systems.sync.sock.on("game",game.systems.sync.game_data);
 game.systems.sync.sock.on("news",(function (d){
 return console.log("got news");
 }));
+game.systems.sync.sock.on("win",game.systems.sync.win);
 game.systems.sync.sync_actions = (function sync_actions(ents){
 var c__2909__auto__ = cljs.core.count.call(null,ents);
 var i__2910__auto__ = 0;
@@ -69,8 +84,8 @@ game.systems.sync.emit.call(null,"action",game.lib.core._GT__LT_.call(null,game.
 (synced["\uFDD0'last-actions"] = goog.object.clone(actions));
 }
 {
-var G__66409 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__66409;
+var G__70829 = (i__2910__auto__ + 1);
+i__2910__auto__ = G__70829;
 continue;
 }
 } else

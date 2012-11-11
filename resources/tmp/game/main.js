@@ -21,20 +21,22 @@ game.lib.dev.begin.call(null);
 game.lib.physics.add_BAR_rem.call(null);
 game.systems.moveable.keyboard.call(null,game.lib.core.all_e.call(null,"\uFDD0'keyboard"));
 game.systems.moveable.move.call(null,game.lib.core.all_e.call(null,"\uFDD0'player-actions"));
+game.systems.moveable.bounce.call(null,game.lib.core.all_e.call(null,"\uFDD0'bouncy"));
 game.systems.moveable.jump.call(null,game.lib.core.all_e.call(null,"\uFDD0'player-actions"));
 game.systems.moveable.animate_actions.call(null,game.lib.core.all_e.call(null,"\uFDD0'player-actions"));
-game.systems.moveable.bounce.call(null,game.lib.core.all_e.call(null,"\uFDD0'bouncy"));
 game.systems.chroma.chroma.call(null,game.lib.core.all_e.call(null,"\uFDD0'chroma"));
 game.systems.chroma.chroma_physics.call(null,game.lib.core.all_e.call(null,"\uFDD0'chroma-activated"));
 game.systems.chroma.chromatons.call(null,game.lib.core.all_e.call(null,"\uFDD0'chromaton"));
 game.systems.health.death_conditions.call(null,game.lib.core.all_e.call(null,"\uFDD0'health"));
 game.systems.health.kill.call(null,game.lib.core.all_e.call(null,"\uFDD0'health"));
+game.systems.health.respawn_point.call(null,game.lib.core.all_e.call(null,"\uFDD0'respawn"));
 game.systems.health.spawn.call(null,game.lib.core.all_e.call(null,"\uFDD0'spawn"));
+game.systems.health.single_use.call(null,game.lib.core.all_e.call(null,"\uFDD0'single-use"));
 game.systems.sync.sync_actions.call(null,game.lib.core.all_e.call(null,"\uFDD0'synced"));
 game.lib.physics.step.call(null);
 var player = cljs.core.first.call(null,game.lib.core.all_e.call(null,"\uFDD0'player"));
 game.systems.camera.follow_player.call(null,player,game.lib.core.all_e.call(null,"\uFDD0'camera"));
-var brush37140 = game.util.brush;
+var brush68608 = game.util.brush;
 try{game.util.brush = brush;
 game.systems.camera.renderer.call(null,player);
 if(false)
@@ -42,10 +44,11 @@ if(false)
 } else
 {}
 game.systems.camera.restore.call(null);
-}finally {game.util.brush = brush37140;
-}var opponent = cljs.core.first.call(null,game.lib.core.all_e.call(null,"\uFDD0'opponent"));
+}finally {game.util.brush = brush68608;
+}if(cljs.core.truth_(game.util.opponent_QMARK_))
+{var opponent = cljs.core.first.call(null,game.lib.core.all_e.call(null,"\uFDD0'opponent"));
 game.systems.camera.follow_player.call(null,opponent,game.lib.core.all_e.call(null,"\uFDD0'camera"));
-var brush37142 = game.util.brush;
+var brush68610 = game.util.brush;
 try{game.util.brush = opponent_brush;
 game.systems.camera.renderer.call(null,opponent);
 if(false)
@@ -53,8 +56,11 @@ if(false)
 } else
 {}
 game.systems.camera.restore.call(null);
-}finally {game.util.brush = brush37142;
-}game.lib.dev.end.call(null);
+}finally {game.util.brush = brush68610;
+}} else
+{}
+game.lib.dev.end.call(null);
+game.systems.health.func_activates.call(null,game.lib.core.all_e.call(null,"\uFDD0'func-activate"));
 return game.lib.core.frame.call(null,(function (){
 return game_loop.call(null,brush,opponent_brush);
 }));

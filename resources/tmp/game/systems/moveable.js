@@ -26,11 +26,16 @@ if(cljs.core._EQ_.call(null,adata,"\uFDD0'foot"))
 game.systems.moveable.on_foot = (function on_foot(a,b){
 var temp__2223__auto__ = game.systems.moveable.foot_QMARK_.call(null,a,b);
 if(cljs.core.truth_(temp__2223__auto__))
-{var vec__46476 = temp__2223__auto__;
-var f = cljs.core.nth.call(null,vec__46476,0,null);
-var g = cljs.core.nth.call(null,vec__46476,1,null);
-var jump = Game.as(game.lib.physics.fix__GT_ent.call(null,f),"\uFDD0'jump");
+{var vec__4606 = temp__2223__auto__;
+var f = cljs.core.nth.call(null,vec__4606,0,null);
+var g = cljs.core.nth.call(null,vec__4606,1,null);
+if(cljs.core.truth_(game.lib.core.has_QMARK_.call(null,game.lib.physics.fix__GT_ent.call(null,g),"\uFDD0'solid")))
+{var jump = Game.as(game.lib.physics.fix__GT_ent.call(null,f),"\uFDD0'jump");
+(jump["\uFDD0'ground-count"] = ((jump["\uFDD0'ground-count"]) + 1));
 return (jump["\uFDD0'ground"] = true);
+} else
+{return null;
+}
 } else
 {return null;
 }
@@ -38,11 +43,20 @@ return (jump["\uFDD0'ground"] = true);
 game.systems.moveable.off_foot = (function off_foot(a,b){
 var temp__2223__auto__ = game.systems.moveable.foot_QMARK_.call(null,a,b);
 if(cljs.core.truth_(temp__2223__auto__))
-{var vec__46478 = temp__2223__auto__;
-var f = cljs.core.nth.call(null,vec__46478,0,null);
-var g = cljs.core.nth.call(null,vec__46478,1,null);
-var jump = Game.as(game.lib.physics.fix__GT_ent.call(null,f),"\uFDD0'jump");
-return (jump["\uFDD0'ground"] = false);
+{var vec__4608 = temp__2223__auto__;
+var f = cljs.core.nth.call(null,vec__4608,0,null);
+var g = cljs.core.nth.call(null,vec__4608,1,null);
+if(cljs.core.truth_(game.lib.core.has_QMARK_.call(null,game.lib.physics.fix__GT_ent.call(null,g),"\uFDD0'solid")))
+{var jump = Game.as(game.lib.physics.fix__GT_ent.call(null,f),"\uFDD0'jump");
+(jump["\uFDD0'ground-count"] = ((jump["\uFDD0'ground-count"]) - 1));
+if(cljs.core._EQ_.call(null,(jump["\uFDD0'ground-count"]),0))
+{return (jump["\uFDD0'ground"] = false);
+} else
+{return null;
+}
+} else
+{return null;
+}
 } else
 {return null;
 }
@@ -75,10 +89,10 @@ if(cljs.core._EQ_.call(null,adata,"\uFDD0'left-side"))
 game.systems.moveable.on_side = (function on_side(a,b){
 var temp__2223__auto__ = game.systems.moveable.side_QMARK_.call(null,a,b);
 if(cljs.core.truth_(temp__2223__auto__))
-{var vec__46480 = temp__2223__auto__;
-var side = cljs.core.nth.call(null,vec__46480,0,null);
-var s = cljs.core.nth.call(null,vec__46480,1,null);
-var g = cljs.core.nth.call(null,vec__46480,2,null);
+{var vec__4610 = temp__2223__auto__;
+var side = cljs.core.nth.call(null,vec__4610,0,null);
+var s = cljs.core.nth.call(null,vec__4610,1,null);
+var g = cljs.core.nth.call(null,vec__4610,2,null);
 var blocked = Game.as(game.lib.physics.fix__GT_ent.call(null,s),"\uFDD0'blocked");
 if(cljs.core.truth_((function (){var and__2072__auto__ = blocked;
 if(cljs.core.truth_(and__2072__auto__))
@@ -99,10 +113,10 @@ return (blocked[side] = true);
 game.systems.moveable.off_side = (function off_side(a,b){
 var temp__2223__auto__ = game.systems.moveable.side_QMARK_.call(null,a,b);
 if(cljs.core.truth_(temp__2223__auto__))
-{var vec__46482 = temp__2223__auto__;
-var side = cljs.core.nth.call(null,vec__46482,0,null);
-var s = cljs.core.nth.call(null,vec__46482,1,null);
-var g = cljs.core.nth.call(null,vec__46482,2,null);
+{var vec__4612 = temp__2223__auto__;
+var side = cljs.core.nth.call(null,vec__4612,0,null);
+var s = cljs.core.nth.call(null,vec__4612,1,null);
+var g = cljs.core.nth.call(null,vec__4612,2,null);
 var blocked = Game.as(game.lib.physics.fix__GT_ent.call(null,s),"\uFDD0'blocked");
 if(cljs.core.truth_((function (){var and__2072__auto__ = blocked;
 if(cljs.core.truth_(and__2072__auto__))
@@ -120,11 +134,11 @@ if(cljs.core.truth_(and__2072__auto__))
 }
 });
 game.systems.moveable.keyboard = (function keyboard(ents){
-var c__2909__auto__ = cljs.core.count.call(null,ents);
-var i__2910__auto__ = 0;
+var c__4106__auto__ = cljs.core.count.call(null,ents);
+var i__4107__auto__ = 0;
 while(true){
-if((i__2910__auto__ < c__2909__auto__))
-{var e = (ents[i__2910__auto__]);
+if((i__4107__auto__ < c__4106__auto__))
+{var e = (ents[i__4107__auto__]);
 var actions = Game.as(e,"\uFDD0'player-actions");
 (actions["\uFDD0'jump"] = false);
 (actions["\uFDD0'move-left"] = false);
@@ -150,8 +164,8 @@ if(cljs.core.truth_(game.systems.moveable.key_QMARK_.call(null,"\uFDD0'space")))
 } else
 {}
 {
-var G__46483 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__46483;
+var G__4613 = (i__4107__auto__ + 1);
+i__4107__auto__ = G__4613;
 continue;
 }
 } else
@@ -161,11 +175,11 @@ break;
 }
 });
 game.systems.moveable.jump = (function jump(ents){
-var c__2909__auto__ = cljs.core.count.call(null,ents);
-var i__2910__auto__ = 0;
+var c__4106__auto__ = cljs.core.count.call(null,ents);
+var i__4107__auto__ = 0;
 while(true){
-if((i__2910__auto__ < c__2909__auto__))
-{var e = (ents[i__2910__auto__]);
+if((i__4107__auto__ < c__4106__auto__))
+{var e = (ents[i__4107__auto__]);
 var actions = Game.as(e,"\uFDD0'player-actions");
 var jump__$1 = Game.as(e,"\uFDD0'jump");
 (jump__$1["\uFDD0'prev-falling"] = (jump__$1["\uFDD0'falling"]));
@@ -202,8 +216,8 @@ if(and__2072__auto____$1)
 {}
 }
 {
-var G__46484 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__46484;
+var G__4614 = (i__4107__auto__ + 1);
+i__4107__auto__ = G__4614;
 continue;
 }
 } else
@@ -213,11 +227,11 @@ break;
 }
 });
 game.systems.moveable.move = (function move(ents){
-var c__2909__auto__ = cljs.core.count.call(null,ents);
-var i__2910__auto__ = 0;
+var c__4106__auto__ = cljs.core.count.call(null,ents);
+var i__4107__auto__ = 0;
 while(true){
-if((i__2910__auto__ < c__2909__auto__))
-{var e = (ents[i__2910__auto__]);
+if((i__4107__auto__ < c__4106__auto__))
+{var e = (ents[i__4107__auto__]);
 var actions = Game.as(e,"\uFDD0'player-actions");
 var facing = Game.as(e,"\uFDD0'facing");
 var blocked = Game.as(e,"\uFDD0'blocked");
@@ -254,8 +268,8 @@ if(cljs.core.truth_(and__2072__auto__))
 }
 }
 {
-var G__46485 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__46485;
+var G__4615 = (i__4107__auto__ + 1);
+i__4107__auto__ = G__4615;
 continue;
 }
 } else
@@ -276,11 +290,11 @@ if(cljs.core.truth_(or__2074__auto__))
 return (anim["\uFDD0'count"] = 0);
 });
 game.systems.moveable.animate_actions = (function animate_actions(ents){
-var c__2909__auto__ = cljs.core.count.call(null,ents);
-var i__2910__auto__ = 0;
+var c__4106__auto__ = cljs.core.count.call(null,ents);
+var i__4107__auto__ = 0;
 while(true){
-if((i__2910__auto__ < c__2909__auto__))
-{var e = (ents[i__2910__auto__]);
+if((i__4107__auto__ < c__4106__auto__))
+{var e = (ents[i__4107__auto__]);
 var actions = Game.as(e,"\uFDD0'player-actions");
 var anim = Game.as(e,"\uFDD0'animated");
 var facing = Game.as(e,"\uFDD0'facing");
@@ -339,8 +353,8 @@ if(cljs.core.truth_(and__2072__auto__))
 } else
 {}
 {
-var G__46486 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__46486;
+var G__4616 = (i__4107__auto__ + 1);
+i__4107__auto__ = G__4616;
 continue;
 }
 } else
@@ -350,26 +364,26 @@ break;
 }
 });
 game.systems.moveable.bounce = (function bounce(ents){
-var c__2909__auto__ = cljs.core.count.call(null,ents);
-var i__2910__auto__ = 0;
+var c__4106__auto__ = cljs.core.count.call(null,ents);
+var i__4107__auto__ = 0;
 while(true){
-if((i__2910__auto__ < c__2909__auto__))
-{var e = (ents[i__2910__auto__]);
+if((i__4107__auto__ < c__4106__auto__))
+{var e = (ents[i__4107__auto__]);
 var trip = Game.as(e,"\uFDD0'trippable");
 var bouncy = Game.as(e,"\uFDD0'bouncy");
 if(((bouncy["\uFDD0'count"]) > 0))
 {(bouncy["\uFDD0'count"] = ((bouncy["\uFDD0'count"]) - 1));
 } else
 {if(cljs.core.truth_((trip["\uFDD0'active"])))
-{(trip["\uFDD0'active"] = false);
+{(game.lib.core.as.call(null,(trip["\uFDD0'target"]),"\uFDD0'jump")["\uFDD0'count"] = 15);
 (bouncy["\uFDD0'count"] = 20);
 game.lib.physics.impulse.call(null,(trip["\uFDD0'target"]),0,-70);
 } else
 {}
 }
 {
-var G__46487 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__46487;
+var G__4617 = (i__4107__auto__ + 1);
+i__4107__auto__ = G__4617;
 continue;
 }
 } else

@@ -1,5 +1,6 @@
 (ns game.systems.health
   (:require [game.lib.core :refer [all-e has?]]
+            [game.util :refer [destroy!]]
             [game.lib.physics :as phys])
   (:require-macros [game.lib.macros :refer [letc ? ! dofs]]))
 
@@ -12,11 +13,23 @@
 
 (defn trippable-death [ents]
   (dofs [e ents]
-        (letc e [trip :trippable]
+        (letc e [trip :trippable
+                 single :single-use]
               (when (? trip :active)
                 (letc (? trip :target) [health :health]
                       (! health :dead true)
                     )))))
+
+(defn single-use [ents]
+  (dofs [e ents]
+        (letc e [single :single-use
+                 trip :trippable]
+              (when (or (? trip :active)
+                        (? single :counting))
+                (cond
+                 (= (? single :count) 0) (destroy! e)
+                 (not (? single :counting)) (! single :counting true)
+                 :else (! single :count (dec (? single :count))))))))
 
 (defn kill [ents]
   (dofs [e ents]
@@ -76,7 +89,25 @@
                  pos :position]
               (when (? spawn :respawn)
                 (phys/set-position e (? spawn :x) (? spawn :y))
+                (phys/velocity e 0 0)
                 (! pos :x (? spawn :x))
                 (! pos :y (? spawn :y))
                 (! actions :can-act? true)
                 (! spawn :respawn false)))))
+
+
+(defn respawn-point [ents]
+  (dofs [e ents]
+        (letc e [trip :trippable
+                 respawn :respawn]
+              (when (? trip :active)
+                (letc (? trip :target) [spawn :spawn]
+                      (! spawn :x (? respawn :x))
+                      (! spawn :y (? respawn :y)))))))
+
+(defn func-activates [ents]
+  (dofs [e ents]
+        (letc e [trip :trippable
+                 func :func-activate]
+              (when (? trip :active)
+                ((? func :fn))))))

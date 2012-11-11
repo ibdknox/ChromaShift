@@ -23,16 +23,19 @@
   ;;systems here
   (move/keyboard (all-e :keyboard))
   (move/move (all-e :player-actions))
+  (move/bounce (all-e :bouncy))
   (move/jump (all-e :player-actions))
   (move/animate-actions (all-e :player-actions))
-  (move/bounce (all-e :bouncy))
   (chroma/chroma (all-e :chroma))
   (chroma/chroma-physics (all-e :chroma-activated))
   (chroma/chromatons (all-e :chromaton))
   
   (health/death-conditions (all-e :health))
   (health/kill (all-e :health))
+  (health/respawn-point (all-e :respawn))
   (health/spawn (all-e :spawn))
+
+  (health/single-use (all-e :single-use))
   
   (sync/sync-actions (all-e :synced))
 
@@ -47,16 +50,19 @@
          (dev/phys-debug)))
       (cam/restore)))
 
-  (let [opponent (first (all-e :opponent))]
-    (cam/follow-player opponent (all-e :camera))
-    (binding [util/brush opponent-brush]
-      (cam/renderer opponent)
-      (when-dev
-       (when false
-         (dev/phys-debug)))
-      (cam/restore)))
+  (when util/opponent?
+    (let [opponent (first (all-e :opponent))]
+      (cam/follow-player opponent (all-e :camera))
+      (binding [util/brush opponent-brush]
+        (cam/renderer opponent)
+        (when-dev
+         (when false
+           (dev/phys-debug)))
+        (cam/restore))))
 
   (dev/end)
+
+  (health/func-activates (all-e :func-activate))
 
   (frame #(game-loop brush opponent-brush)))
 

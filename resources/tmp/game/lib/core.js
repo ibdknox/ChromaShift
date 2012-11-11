@@ -1,7 +1,7 @@
 goog.provide('game.lib.core');
 goog.require('cljs.core');
-cljs.core._STAR_print_fn_STAR_ = (function (p1__3075_SHARP_){
-return console.log(p1__3075_SHARP_);
+cljs.core._STAR_print_fn_STAR_ = (function (p1__4539_SHARP_){
+return console.log(p1__4539_SHARP_);
 });
 game.lib.core.frame = (function (){var or__2074__auto__ = window.requestAnimationFrame;
 if(cljs.core.truth_(or__2074__auto__))
@@ -38,14 +38,14 @@ return setTimeout(callback,17);
 game.lib.core.entity = (function() { 
 var entity__delegate = function (name,comps){
 var ent = Game.create(name);
-var G__3077 = cljs.core.seq.call(null,comps);
+var G__4541 = cljs.core.seq.call(null,comps);
 while(true){
-if(G__3077)
-{var c = cljs.core.first.call(null,G__3077);
+if(G__4541)
+{var c = cljs.core.first.call(null,G__4541);
 Game.addC(ent,c);
 {
-var G__3078 = cljs.core.next.call(null,G__3077);
-G__3077 = G__3078;
+var G__4542 = cljs.core.next.call(null,G__4541);
+G__4541 = G__4542;
 continue;
 }
 } else
@@ -62,9 +62,9 @@ if (goog.isDef(var_args)) {
 return entity__delegate.call(this, name, comps);
 };
 entity.cljs$lang$maxFixedArity = 1;
-entity.cljs$lang$applyTo = (function (arglist__3079){
-var name = cljs.core.first(arglist__3079);
-var comps = cljs.core.rest(arglist__3079);
+entity.cljs$lang$applyTo = (function (arglist__4543){
+var name = cljs.core.first(arglist__4543);
+var comps = cljs.core.rest(arglist__4543);
 return entity__delegate(name, comps);
 });
 entity.cljs$lang$arity$variadic = entity__delegate;
@@ -85,21 +85,21 @@ game.lib.core.as = Game.as;
 game.lib.core.clear_BANG_ = Game.clear;
 game.lib.core.load_scene = (function load_scene(scene){
 game.lib.core.clear_BANG_.call(null);
-var G__3083 = cljs.core.seq.call(null,cljs.core.partition_all.call(null,2,scene));
+var G__4547 = cljs.core.seq.call(null,cljs.core.partition_all.call(null,2,scene));
 while(true){
-if(G__3083)
-{var vec__3084 = cljs.core.first.call(null,G__3083);
-var name = cljs.core.nth.call(null,vec__3084,0,null);
-var comps = cljs.core.nth.call(null,vec__3084,1,null);
+if(G__4547)
+{var vec__4548 = cljs.core.first.call(null,G__4547);
+var name = cljs.core.nth.call(null,vec__4548,0,null);
+var comps = cljs.core.nth.call(null,vec__4548,1,null);
 var ent = Game.create(name);
-var G__3085 = cljs.core.seq.call(null,comps);
+var G__4549 = cljs.core.seq.call(null,comps);
 while(true){
-if(G__3085)
-{var c = cljs.core.first.call(null,G__3085);
+if(G__4549)
+{var c = cljs.core.first.call(null,G__4549);
 Game.addC(ent,c);
 {
-var G__3086 = cljs.core.next.call(null,G__3085);
-G__3085 = G__3086;
+var G__4550 = cljs.core.next.call(null,G__4549);
+G__4549 = G__4550;
 continue;
 }
 } else
@@ -107,8 +107,8 @@ continue;
 break;
 }
 {
-var G__3087 = cljs.core.next.call(null,G__3083);
-G__3083 = G__3087;
+var G__4551 = cljs.core.next.call(null,G__4547);
+G__4547 = G__4551;
 continue;
 }
 } else

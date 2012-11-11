@@ -1,5 +1,5 @@
 (ns game.systems.moveable
-  (:require [game.lib.core :refer [has?]]
+  (:require [game.lib.core :refer [has? as]]
             [game.util :refer [kstr]]
             [game.lib.physics :as phys])
   (:require-macros [game.lib.macros :refer [letc ? ! dofs]]))
@@ -16,17 +16,22 @@
 
 (defn on-foot [a b]
   (when-let [[f g] (foot? a b)]
-    ;;get the dude attached to the foot
-    (letc (phys/fix->ent f) [jump :jump]
-          (! jump :ground true)
-          )))
+    (when (has? (phys/fix->ent g) :solid)
+      ;;get the dude attached to the foot
+      (letc (phys/fix->ent f) [jump :jump]
+            (! jump :ground-count (inc (? jump :ground-count)))
+            (! jump :ground true)
+            ))))
 
 (defn off-foot [a b]
   (when-let [[f g] (foot? a b)]
-    ;;get the dude attached to the foot
-    (letc (phys/fix->ent f) [jump :jump]
-          (! jump :ground false)
-          )))
+    (when (has? (phys/fix->ent g) :solid)
+      ;;get the dude attached to the foot
+      (letc (phys/fix->ent f) [jump :jump]
+            (! jump :ground-count (dec (? jump :ground-count)))
+            (when (= (? jump :ground-count) 0)
+              (! jump :ground false))
+            ))))
 
 (defn side? [a b]
   (let [adata (.GetUserData a)
@@ -141,7 +146,7 @@
               (cond 
                (> (? bouncy :count) 0) (! bouncy :count (dec (? bouncy :count)))
                (? trip :active) (do
-                                  (! trip :active false)
+                                  (! (as (? trip :target) :jump) :count 15)
                                   (! bouncy :count 20)
                                   (phys/impulse (? trip :target) 0 -70))))
               ))

@@ -1,6 +1,6 @@
 (ns game.systems.camera
   (:require [game.lib.core :refer [all-e as]]
-            [game.util :refer [adjust-center brush]]
+            [game.util :refer [adjust-center brush width height]]
             [game.lib.physics :as phys])
   (:require-macros [game.lib.macros :refer [letc ? ! dofs]]))
 
@@ -26,7 +26,7 @@
 
 ;;TODO: should probably implement layers here...
 (defn renderer [player]
-  (.clearRect brush (js-obj :w 500 :h 500))
+  (.clearRect brush (js-obj :w width :h height))
   (dofs [e (all-e :backing-layer)]
         (letc e [rend :renderable]
               ((? rend :fn) e)))

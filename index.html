@@ -1,6 +1,9 @@
 <html>
     <head>
-        <title>Game</title>
+      <title>ChromaShift</title>
+      <link href='http://fonts.googleapis.com/css?family=Share+Tech' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" type="text/css" href="/assets/index.css">
+
       <script src="/assets/js/lib/jquery.js" type="text/javascript"></script>
       <script src="/assets/js/lib/box2dweb.min.js" type="text/javascript"></script>
       <script src="/assets/js/lib/stats.js" type="text/javascript"></script>
@@ -9,10 +12,162 @@
       <script src="/assets/js/input.js" type="text/javascript"></script>
       <script src="/socket.io/socket.io.js"></script>
       <script src="http://localhost:8833/socket.io/lighttable/ws.js" type="text/javascript"></script>
+      <script>
+		$(document).ready(function(){
+			$("#help").click(function(event){
+				$("#main-page").hide();
+				$("#help-page").show();
+				     event.preventDefault();
+			})
+		})
+		$(document).ready(function(){
+			$("#back").click(function(event){
+				$("#help-page").hide();
+				$("#main-page").show();
+				     event.preventDefault();
+			})
+		})
+		</script>
     </head>
-    <body style="background:#333;" >
-      <canvas id="game" width="500" height="400" tabindex="0"></canvas>
-      <canvas id="opponent-game" width="500" height="400" tabindex="0"></canvas>
+  <body id="home-body">
+		<div id="main-page" class="center-block">
+          <h1><img src="/assets/img/logo.png" alt="ChromaShift"></h1>
+			<div id="link-box">
+				<a href="#" class="links" id="learn">Learn</a>
+				<a href="#" class="links" id="fight">Join the Race!</a>
+			</div>
+			<a href="#" id="help">?</a>
+			<div id="stats">
+				<div class="full-bars">
+					<span id="green" class="bars"></span>
+				</div>
+				<div class="full-bars">
+					<span id="blue" class="bars"></span>
+				</div>
+<!--				<img id="bunny-stats" src="bunny_turtle.jpg" alt="graph"/> -->
+			</div>
+		</div>
+        <div id="loading" class="center-block">
+          <h1><img src="/assets/img/logo.png" alt="ChromaShift"></h1>          <p>Loading...</p>
+		</div>
+     <div id="win" class="center-block">
+          <h1><img src="/assets/img/logo.png" alt="ChromaShift"></h1>
+       <p>VICTORY</p>
+		</div>
+     <div id="lose" class="center-block">
+          <h1><img src="/assets/img/logo.png" alt="ChromaShift"></h1>          
+       <p>DEFEAT</p>
+		</div>
+    <div id="searching" class="center-block">
+          <h1><img src="/assets/img/logo.png" alt="ChromaShift"></h1>      <p>Looking for a match...</p>
+		</div>
+    	<div id="game-container" class="no-opponent">
+          <h1><img src="/assets/img/logo.png" alt="ChromaShift"></h1>
+          <canvas id="game" width="1000" height="500"></canvas>
+          <canvas id="opponent-game" width="500" height="400"></canvas>
+    	</div>
+		<div id="help-page" class="center-block">
+			<a href="#" id="back">Back</a>			
+			<div id="about-block">About
+				<p id="about-text">
+When humanity spread to the stars, it inhabited and colonized new planets to call home. Far away from Earth, these new planets set up their own government to unite them and guide them. Two new nations vie for a coveted spot in the congressional Quorum.
+
+Khloros, the green planet, filled with swirling vapors and towering spires built above the toxic fumes.
+
+Aegir, the blue planet, with its vast oceans, steep fjords, and shining capital city in the mountains.
+
+Like the Olympics of ancient times, each planet is to send its champions to compete. In the arena, platforms and hazards from both planets deter the champions from their goal, but champions can chromashift to pass through native colors - or materialize obstacles to stop their opponents. The victorious world will join the Quorum. Which will it be?				</p>
+			</div>
+          <!--
+			<table id="legend" border=1px>
+				<tbody>
+					<tr>
+						<td>
+							<img class="things-in-game" src="2814818486780322_GuVgk0W6_c.jpg" alt="">
+						</td>
+						<td class="things-text">Muffin powder ice cream ice cream cheesecake pie</td>
+					</tr>
+					<tr>
+						<td>
+							<img class="things-in-game" src="16184879880811295_8egznXjr_c.jpg" alt="">
+						</td>
+						<td class="things-text">Muffin powder ice cream ice cream cheesecake pie</td>
+					</tr>
+					<tr>
+						<td>
+							<img class="things-in-game" src="165014773816391254_UPLcLkBJ_c.jpg" alt="">
+						</td>
+						<td class="things-text">Muffin powder ice cream ice cream cheesecake pie</td>
+					</tr>
+					<tr>
+						<td>
+							<img class="things-in-game" src="29695678763253880_rLdyuoBd_c.jpeg" alt="">
+						</td>
+						<td class="things-text">Muffin powder ice cream ice cream cheesecake pie</td>
+					</tr>
+					<tr>
+						<td>
+							<img class="things-in-game" src="274227064779965812_bpaHcU8K_c.jpeg" alt="">
+						</td>
+						<td class="things-text">Muffin powder ice cream ice cream cheesecake pie</td>
+					</tr>
+					<tr>
+						<td>
+							<img class="things-in-game" src="puppy.jpg" alt="">
+						</td>
+						<td class="things-text">Muffin powder ice cream ice cream cheesecake pie</td>
+					</tr>
+					<tr>
+						<td>
+							<img class="things-in-game" src="242279654923489858_MRfKY2i4_c.jpg" alt="">
+						</td>
+						<td class="things-text">Muffin powder ice cream ice cream cheesecake pie</td>
+					</tr>
+					<tr>
+						<td>
+							<img class="things-in-game" src="151644712422995516_PG2nkT1I_f.jpg" alt="">
+						</td>
+						<td class="things-text">Muffin powder ice cream ice cream cheesecake pie</td>
+					</tr>
+
+
+			</table>
+-->
+		</div>
+
+
+
+
+
       <script src="/assets/js/generated/bootstrap.js" type="text/javascript"></script>
     </body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Chroma Shift</title>
+		<link href='http://fonts.googleapis.com/css?family=Share+Tech' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script>
+		$(document).ready(function(){
+			$("#help").click(function(event){
+				$("#main-page").hide();
+				$("#help-page").show();
+				     event.preventDefault();
+			})
+		})
+		$(document).ready(function(){
+			$("#back").click(function(event){
+				$("#help-page").hide();
+				$("#main-page").show();
+				     event.preventDefault();
+			})
+		})
+		</script>
+	</head>
+
+	</body>
 </html>

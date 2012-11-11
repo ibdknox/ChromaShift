@@ -9,6 +9,14 @@
         "\ufdd0'z": 90,
         "\ufdd0'space": 32
     };
+  var capture = {
+    37: true,
+    38: true,
+    39: true,
+    40: true,
+    90: true,
+    32: true
+  };
 
     var input = {
 
@@ -21,14 +29,18 @@
 
     }
 
-    $(document).delegate("#game", "keydown", function(e) {
+    $(document).bind("keydown", function(e) {
+      if(capture[e.keyCode]) {
         e.preventDefault();
-        active[e.keyCode] = true;
+      }
+      active[e.keyCode] = true;
     });
 
-    $(document).delegate("#game", "keyup", function(e) {
+    $(document).bind("keyup", function(e) {
+      if(capture[e.keyCode]) {
         e.preventDefault();
-        delete active[e.keyCode];
+      }
+      delete active[e.keyCode];
     });
 
     window.input = input;

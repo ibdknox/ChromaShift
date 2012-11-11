@@ -3,6 +3,7 @@
             [game.lib.core :refer [has? all-e >< load-scene]]
             [game.util :refer [obj-equal? offset]]
             [game.systems.chroma :as chr]
+            [game.flow :as flow]
             [game.lib.physics :as phys])
   (:require-macros [game.lib.macros :refer [letc ? ! dofs]]))
 
@@ -29,15 +30,27 @@
 (defn sync [data]
   )
 
+(defn queue []
+  (emit "match" (js-obj)))
+
+(defn end []
+  (emit "end" (js-obj)))
+
 (defn game-data [data]
   (set! chr/color (? data :color))
   (set! chr/opponent-color (? data :opponent-color))
-  (load-scene (js/game.levels.opening.level)))
+  (flow/match-found (? data :level)))
+
+(defn win [data]
+  (if (? data :win)
+    (flow/win)
+    (flow/lose)))
 
 (.on sock "action" action)
 (.on sock "sync" sync)
 (.on sock "game" game-data)
 (.on sock "news" (fn [d] (.log js/console "got news")))
+(.on sock "win" win)
 
 (defn sync-actions [ents]
   (dofs [e ents]

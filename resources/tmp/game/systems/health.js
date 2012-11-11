@@ -1,7 +1,9 @@
 goog.provide('game.systems.health');
 goog.require('cljs.core');
 goog.require('game.lib.core');
+goog.require('game.util');
 goog.require('game.lib.physics');
+goog.require('game.util');
 goog.require('game.lib.core');
 game.systems.health.off_map_death = (function off_map_death(ents){
 var c__2909__auto__ = cljs.core.count.call(null,ents);
@@ -16,8 +18,8 @@ if(((pos["\uFDD0'y"]) > 1000))
 } else
 {}
 {
-var G__64980 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__64980;
+var G__14751 = (i__2910__auto__ + 1);
+i__2910__auto__ = G__14751;
 continue;
 }
 } else
@@ -33,14 +35,55 @@ while(true){
 if((i__2910__auto__ < c__2909__auto__))
 {var e = (ents[i__2910__auto__]);
 var trip = Game.as(e,"\uFDD0'trippable");
+var single = Game.as(e,"\uFDD0'single-use");
 if(cljs.core.truth_((trip["\uFDD0'active"])))
 {var health = Game.as((trip["\uFDD0'target"]),"\uFDD0'health");
 (health["\uFDD0'dead"] = true);
 } else
 {}
 {
-var G__64981 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__64981;
+var G__14752 = (i__2910__auto__ + 1);
+i__2910__auto__ = G__14752;
+continue;
+}
+} else
+{return null;
+}
+break;
+}
+});
+game.systems.health.single_use = (function single_use(ents){
+var c__2909__auto__ = cljs.core.count.call(null,ents);
+var i__2910__auto__ = 0;
+while(true){
+if((i__2910__auto__ < c__2909__auto__))
+{var e = (ents[i__2910__auto__]);
+var single = Game.as(e,"\uFDD0'single-use");
+var trip = Game.as(e,"\uFDD0'trippable");
+if(cljs.core.truth_((function (){var or__2074__auto__ = (trip["\uFDD0'active"]);
+if(cljs.core.truth_(or__2074__auto__))
+{return or__2074__auto__;
+} else
+{return (single["\uFDD0'counting"]);
+}
+})()))
+{if(cljs.core._EQ_.call(null,(single["\uFDD0'count"]),0))
+{game.util.destroy_BANG_.call(null,e);
+} else
+{if(cljs.core.not.call(null,(single["\uFDD0'counting"])))
+{(single["\uFDD0'counting"] = true);
+} else
+{if("\uFDD0'else")
+{(single["\uFDD0'count"] = ((single["\uFDD0'count"]) - 1));
+} else
+{}
+}
+}
+} else
+{}
+{
+var G__14753 = (i__2910__auto__ + 1);
+i__2910__auto__ = G__14753;
 continue;
 }
 } else
@@ -82,8 +125,8 @@ if(cljs.core.truth_((health["\uFDD0'dead"])))
 } else
 {}
 {
-var G__64982 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__64982;
+var G__14754 = (i__2910__auto__ + 1);
+i__2910__auto__ = G__14754;
 continue;
 }
 } else
@@ -124,9 +167,9 @@ if(cljs.core.truth_(and__2072__auto__))
 game.systems.health.on_trip = (function on_trip(a,b){
 var temp__2223__auto__ = game.systems.health.trippable_and_player_QMARK_.call(null,a,b);
 if(cljs.core.truth_(temp__2223__auto__))
-{var vec__64984 = temp__2223__auto__;
-var p = cljs.core.nth.call(null,vec__64984,0,null);
-var t = cljs.core.nth.call(null,vec__64984,1,null);
+{var vec__14756 = temp__2223__auto__;
+var p = cljs.core.nth.call(null,vec__14756,0,null);
+var t = cljs.core.nth.call(null,vec__14756,1,null);
 var trip = Game.as(t,"\uFDD0'trippable");
 (trip["\uFDD0'target"] = p);
 return (trip["\uFDD0'active"] = true);
@@ -137,9 +180,9 @@ return (trip["\uFDD0'active"] = true);
 game.systems.health.off_trip = (function off_trip(a,b){
 var temp__2223__auto__ = game.systems.health.trippable_and_player_QMARK_.call(null,a,b);
 if(cljs.core.truth_(temp__2223__auto__))
-{var vec__64986 = temp__2223__auto__;
-var p = cljs.core.nth.call(null,vec__64986,0,null);
-var t = cljs.core.nth.call(null,vec__64986,1,null);
+{var vec__14758 = temp__2223__auto__;
+var p = cljs.core.nth.call(null,vec__14758,0,null);
+var t = cljs.core.nth.call(null,vec__14758,1,null);
 var trip = Game.as(t,"\uFDD0'trippable");
 (trip["\uFDD0'target"] = null);
 return (trip["\uFDD0'active"] = false);
@@ -162,6 +205,7 @@ var actions = Game.as(e,"\uFDD0'player-actions");
 var pos = Game.as(e,"\uFDD0'position");
 if(cljs.core.truth_((spawn__$1["\uFDD0'respawn"])))
 {game.lib.physics.set_position.call(null,e,(spawn__$1["\uFDD0'x"]),(spawn__$1["\uFDD0'y"]));
+game.lib.physics.velocity.call(null,e,0,0);
 (pos["\uFDD0'x"] = (spawn__$1["\uFDD0'x"]));
 (pos["\uFDD0'y"] = (spawn__$1["\uFDD0'y"]));
 (actions["\uFDD0'can-act?"] = true);
@@ -169,8 +213,56 @@ if(cljs.core.truth_((spawn__$1["\uFDD0'respawn"])))
 } else
 {}
 {
-var G__64987 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__64987;
+var G__14759 = (i__2910__auto__ + 1);
+i__2910__auto__ = G__14759;
+continue;
+}
+} else
+{return null;
+}
+break;
+}
+});
+game.systems.health.respawn_point = (function respawn_point(ents){
+var c__2909__auto__ = cljs.core.count.call(null,ents);
+var i__2910__auto__ = 0;
+while(true){
+if((i__2910__auto__ < c__2909__auto__))
+{var e = (ents[i__2910__auto__]);
+var trip = Game.as(e,"\uFDD0'trippable");
+var respawn = Game.as(e,"\uFDD0'respawn");
+if(cljs.core.truth_((trip["\uFDD0'active"])))
+{var spawn = Game.as((trip["\uFDD0'target"]),"\uFDD0'spawn");
+(spawn["\uFDD0'x"] = (respawn["\uFDD0'x"]));
+(spawn["\uFDD0'y"] = (respawn["\uFDD0'y"]));
+} else
+{}
+{
+var G__14760 = (i__2910__auto__ + 1);
+i__2910__auto__ = G__14760;
+continue;
+}
+} else
+{return null;
+}
+break;
+}
+});
+game.systems.health.func_activates = (function func_activates(ents){
+var c__2909__auto__ = cljs.core.count.call(null,ents);
+var i__2910__auto__ = 0;
+while(true){
+if((i__2910__auto__ < c__2909__auto__))
+{var e = (ents[i__2910__auto__]);
+var trip = Game.as(e,"\uFDD0'trippable");
+var func = Game.as(e,"\uFDD0'func-activate");
+if(cljs.core.truth_((trip["\uFDD0'active"])))
+{(func["\uFDD0'fn"]).call(null);
+} else
+{}
+{
+var G__14761 = (i__2910__auto__ + 1);
+i__2910__auto__ = G__14761;
 continue;
 }
 } else

@@ -2,6 +2,9 @@
   (:require [game.lib.core :refer [load-scene clear! >< all-e]]
             [game.lib.physics :as phys]
             [game.util :refer [adjust-center brush offset]]
+            [game.renderers :refer [render-player render-ground render-chroma-ground
+                                    render-mine render-hint render-chromaton render-score
+                                    draw-image]]
             [game.systems.sync :as sync]
             [game.systems.chroma :as chr]
             [game.lib.assets :as assets]
@@ -12,190 +15,35 @@
                            health trippable deadly blocked bouncy chromaton
                            solid points static-renderable animated backing-layer
                            terrain-layer object-layer overlay-layer keyboard
-                           opponent synced facing pos-offset]]))
+                           opponent synced facing pos-offset single-use hint
+                           respawn]]))
 
 ;;THINGS TO DO TODAY
 ;;
-;; projectiles
+;; projectiles [removed]
 ;; render layers (the overlapping is wrong) [done]
-;; animations [done?]
+;; animations [done]
+;; goal reached
+;; hints [done]
+;; respawn points [done]
+;; lazorz
+;; color selection
 ;; server
+;;  - matchmaking [done]
 ;; 	- points
-;;	- syncing
-;; drawing the other player
-;; cross-player chromashifting
-
-(def ->color {:blue "#77f"
-              :green "#50f050"})
-
-(defn load-clear [scene]
-  (phys/clear!)
-  (load-scene scene))
-
-(defn render-player [ent]
-  (letc ent [pos :position
-             dim :dimensions
-             chroma :chroma]
-        (let [color (if (? chroma :active)
-                      (->color (? chroma :color))
-                      "#666")]
-          (.fillStyle brush color)
-          (.rect brush (>< (adjust-center pos dim) dim))
-        )))
-
-(defn render-ground [ent]
-  (letc ent [pos :position
-             dim :dimensions]
-        (.fillStyle brush "#666")
-        (.rect brush (>< (adjust-center pos dim) dim))))
-
-(defn render-chroma-ground [ent]
-  (letc ent [pos :position
-             dim :dimensions
-             chroma :chroma-activated]
-        (.save brush)
-        (when-not (? chroma :active)
-          (.opacity brush 0.5))
-        (.fillStyle brush (->color (? chroma :color)))
-        (.rect brush (>< (adjust-center pos dim) dim))
-        (.restore brush)))
-
-(defn render-mine [ent]
-   (letc ent [pos :position
-             dim :dimensions
-             chroma :chroma-activated]
-        (.save brush)
-        (when-not (? chroma :active)
-          (.opacity brush 0.5))
-        (.fillStyle brush "red")
-        (.rect brush (>< (adjust-center pos dim) dim))
-        (.restore brush)))
-
-(defn render-chromaton [ent]
-    (letc ent [pos :position
-               dim :dimensions]
-        (.fillStyle brush "#fff")
-        (.rect brush (>< (adjust-center pos dim) dim))))
-
-(defn render-score [ent]
-  (let [player (first (all-e :player))]
-    (letc ent [pos :position]
-          (letc player [points :points]
-                (.fillStyle brush "#fff")
-                (.font brush "12pt Helvetica")
-                (.text brush pos (str (? points :points)))))))
-
-(def s (assets/load-set :test {:running {:type :image :src "/assets/img/running.png"}
-                               :standing {:type :image :src "/assets/img/standing.png"}
-                               :jumping {:type :image :src "/assets/img/jumping.png"}
-                               :death {:type :image :src "/assets/img/death.png"}}
-                 #()))
-
-(identity (-> @s :items :standing :elem))
-
-(def animations
-  {:running-right {:frames 11
-             :speed 3
-             :img (-> @s :items :running :elem)
-             :x 0
-             :y 0
-             :w 57
-             :h 70}
-   :running-left {:frames 11
-                  :speed 3
-                  :img (-> @s :items :running :elem)
-                  :x 0
-                  :y 70
-                  :w 57
-                  :h 70}
-   :standing-right {:frames 0
-                    :speed 0
-                    :img (-> @s :items :standing :elem)
-                    :x 0
-                    :y 0
-                    :w 57
-                    :h 70}
-   :standing-left {:frames 0
-                   :speed 0
-                   :img (-> @s :items :standing :elem)
-                   :x 0
-                   :y 70
-                   :w 57
-                   :h 70}
-   :jump-right {:frames 1
-                :speed 15
-                :freeze true
-                :img (-> @s :items :jumping :elem)
-                :x 0
-                :y 0
-                :w 57
-                :h 70}
-   :jump-left {:frames 1
-               :speed 15
-               :freeze true
-               :img (-> @s :items :jumping :elem)
-               :x 0
-               :y 70
-               :w 57
-               :h 70}
-   :falling-right {:frames 2
-                   :speed 5
-                   :freeze true
-                   :img (-> @s :items :jumping :elem)
-                   :x 114
-                   :y 0
-                   :w 57
-                   :h 70}
-   :falling-left {:frames 2
-                  :speed 5
-                  :freeze true
-                  :img (-> @s :items :jumping :elem)
-                  :x 114
-                  :y 70
-                  :w 57
-                  :h 70}
-   :death {:frames 10
-           :speed 3
-           :freeze true
-           :img (-> @s :items :death :elem)
-           :x 0
-           :y 0
-           :w 68
-           :h 93}
-
-   })
-
-(defn animate [anim pos dim]
-  (let [a (animations (? anim :animation))] ;;TODO: this lookup is slow.
-    (when (= 0 (? anim :count))
-      (! anim :frame (inc (? anim :frame)))
-      (! anim :count (:speed a)))
-    (when (and (> (? anim :count) 0)
-               (<= (? anim :frame) (:frames a)))
-      (! anim :count (dec (? anim :count))))
-    (when (and (> (? anim :frame) (:frames a))
-               (not (:freeze a)))
-      (! anim :frame 0))
-    (.clippedImage brush (:img a) (* (? anim :frame) (:w a)) (:y a) (:w a) (:h a) (adjust-center pos (js-obj :hw (/ (:w a) 2) :hh (/ (:h a) 2))))))
-
-(defn draw-image [ent]
-  (when-let [img (-> @s :items :standing :elem)]
-    (letc ent [pos :position
-               rend :renderable
-               dim :dimensions
-               anim :animated
-               chroma :chroma]
-          (.save brush)
-          (when-not (? chroma :active)
-            (.opacity brush 0.5))
-          ;(.image brush img (adjust-center pos dim))
-          (animate anim pos dim)
-          (.restore brush)
-        )))
-
+;;	- syncing [basic - done]
+;; levels
+;;  - intro
+;;  - learn
+;;  - race 1
+;;  - race 2
+;;  - race 3
+;; copy
+;; integrate site
+;; drawing the other player [done]
+;; cross-player chromashifting [done]
 
 (defn level []
-  (.log js/console chr/opponent-color)
   (concat 
    [:background [(renderable (dyn bg/render-normal))
                  (backing-layer)
@@ -243,22 +91,39 @@
              
              ]
     
-    :mine [(renderable (dyn render-chroma-ground))
+    :mine [(renderable (dyn render-mine))
            (trippable)
            (object-layer)
+           (single-use)
            (deadly)
-           (position 100 390 0)
-           (dimensions 10 10)
+           (position 100 387 0)
+           (dimensions 30 15)
            (chroma-activated chr/color)
            (phys/simulate {:static true}
-                          [(phys/box-fixture {:w 10 :h 10})])
-           
+                          [(phys/box-fixture {:w 30 :h 15})])
+
            ]
+
+    :hint [(renderable (dyn render-hint))
+           (trippable)
+           (hint "Land mines will kill you.")
+           (object-layer)
+           (position -30 300)
+           (dimensions 200 80)
+           (phys/simulate {:static true}
+                          [(phys/box-fixture {:w 200 :h 200 :sensor true})])]
+
+    :respawn [(trippable)
+              (respawn 600 330)
+              (position 600 300)
+              (phys/simulate {:static true}
+                             [(phys/box-fixture {:w 200 :h 200 :sensor true})])]
     
     :chromaton [(renderable (dyn render-chromaton))
                 (trippable)
                 (object-layer)
                 (chromaton)
+                (single-use)
                 (position 50 390 0)
                 (dimensions 10 10)
                 (phys/simulate {:static true}
@@ -268,6 +133,7 @@
     :chromaton [(renderable (dyn render-chromaton))
                 (trippable)
                 (chromaton)
+                (single-use)
                 (object-layer)
                 (position 450 390 0)
                 (dimensions 10 10)
@@ -278,6 +144,7 @@
     :chromaton [(renderable (dyn render-chromaton))
                 (trippable)
                 (object-layer)
+                (single-use)
                 (chromaton 20)
                 (position 550 390 0)
                 (dimensions 10 10)
@@ -288,6 +155,7 @@
     :chromaton [(renderable (dyn render-chromaton))
                 (trippable)
                 (chromaton)
+                (single-use)
                 (object-layer)
                 (position 650 390 0)
                 (dimensions 10 10)
@@ -295,7 +163,7 @@
                                [(phys/box-fixture {:w 10 :h 10 :sensor true})])
                 
                 ]
-    
+
     :platform [(renderable (dyn render-ground))
                (position 10 400 0)
                (solid)
@@ -401,6 +269,7 @@
                          (trippable)
                          (object-layer)
                          (chromaton)
+                         (single-use)
                          (position 50 390 0)
                          (dimensions 10 10)
                          (phys/simulate {:static true}
@@ -410,6 +279,7 @@
              :chromaton [(renderable (dyn render-chromaton))
                          (trippable)
                          (chromaton)
+                         (single-use)
                          (object-layer)
                          (position 450 390 0)
                          (dimensions 10 10)
@@ -421,6 +291,7 @@
                          (trippable)
                          (object-layer)
                          (chromaton 20)
+                         (single-use)
                          (position 550 390 0)
                          (dimensions 10 10)
                          (phys/simulate {:static true}
@@ -430,6 +301,7 @@
              :chromaton [(renderable (dyn render-chromaton))
                          (trippable)
                          (chromaton)
+                         (single-use)
                          (object-layer)
                          (position 650 390 0)
                          (dimensions 10 10)
@@ -494,6 +366,6 @@
 
             ))
 
-;(load-scene scene)
+;(load-scene (level))
 
 ;(clear!)

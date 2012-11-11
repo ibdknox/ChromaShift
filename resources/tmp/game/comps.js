@@ -35,7 +35,7 @@ game.comps.synced = (function synced(){
 return {"name":"\uFDD0'synced","\uFDD0'last-actions":{}};
 });
 game.comps.jump = (function jump(){
-return {"name":"\uFDD0'jump","\uFDD0'count":0,"\uFDD0'falling":false,"\uFDD0'ground":true};
+return {"name":"\uFDD0'jump","\uFDD0'count":0,"\uFDD0'ground-count":0,"\uFDD0'falling":false,"\uFDD0'ground":true};
 });
 game.comps.blocked = (function blocked(){
 return {"name":"\uFDD0'blocked","\uFDD0'left":false,"\uFDD0'right":false};
@@ -50,16 +50,19 @@ game.comps.opponent = (function opponent(){
 return {"name":"\uFDD0'opponent"};
 });
 game.comps.chroma = (function chroma(color){
-return {"name":"\uFDD0'chroma","\uFDD0'count":0,"\uFDD0'color":color,"\uFDD0'active":false};
+return {"name":"\uFDD0'chroma","\uFDD0'count":0,"\uFDD0'color":color,"\uFDD0'active":true};
 });
 game.comps.chroma_activated = (function chroma_activated(color){
-return {"name":"\uFDD0'chroma-activated","\uFDD0'color":color,"\uFDD0'active":false};
+return {"name":"\uFDD0'chroma-activated","\uFDD0'color":color,"\uFDD0'active":true};
 });
 game.comps.health = (function health(){
 return {"name":"\uFDD0'health","\uFDD0'dead":false,"\uFDD0'count":false};
 });
 game.comps.spawn = (function spawn(x,y){
 return {"name":"\uFDD0'spawn","\uFDD0'respawn":false,"\uFDD0'x":(game.comps.pos_offset + x),"\uFDD0'y":y};
+});
+game.comps.respawn = (function respawn(x,y){
+return {"name":"\uFDD0'respawn","\uFDD0'x":(game.comps.pos_offset + x),"\uFDD0'y":y};
 });
 game.comps.trippable = (function trippable(){
 return {"name":"\uFDD0'trippable","\uFDD0'active":false};
@@ -88,9 +91,24 @@ return {"name":"\uFDD0'solid"};
 game.comps.animated = (function animated(anim){
 return {"name":"\uFDD0'animated","\uFDD0'animation":anim,"\uFDD0'frame":-1,"\uFDD0'count":0};
 });
+game.comps.single_use = (function single_use(count){
+return {"name":"\uFDD0'single-use","\uFDD0'counting":false,"\uFDD0'count":(function (){var or__2074__auto__ = count;
+if(cljs.core.truth_(or__2074__auto__))
+{return or__2074__auto__;
+} else
+{return 0;
+}
+})()};
+});
 game.comps.keyboard = (function keyboard(){
 return {"name":"\uFDD0'keyboard"};
 });
 game.comps.facing = (function facing(){
 return {"name":"\uFDD0'facing","\uFDD0'dir":"\uFDD0'right"};
+});
+game.comps.hint = (function hint(hint__$1){
+return {"name":"\uFDD0'hint","\uFDD0'hint":hint__$1};
+});
+game.comps.func_activate = (function func_activate(func){
+return {"name":"\uFDD0'func-activate","\uFDD0'fn":func};
 });
