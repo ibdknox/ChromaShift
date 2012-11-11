@@ -7,7 +7,7 @@ goog.require('game.systems.chroma');
 goog.require('game.util');
 goog.require('game.lib.core');
 goog.require('goog.object');
-game.systems.sync.sock = io.connect("http://192.168.0.161");
+game.systems.sync.sock = io.connect("");
 game.systems.sync.emit = (function emit(k,v){
 return game.systems.sync.sock.emit(cljs.core.name.call(null,k),v);
 });
@@ -28,8 +28,8 @@ var chroma = Game.as(e,"\uFDD0'chroma");
 game.systems.chroma.flip_active.call(null,(data["\uFDD0'color"]),(data["\uFDD0'active"]));
 game.lib.physics.set_position.call(null,e,(game.util.offset + (data["\uFDD0'x"])),(data["\uFDD0'y"]));
 {
-var G__61506 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__61506;
+var G__66408 = (i__2910__auto__ + 1);
+i__2910__auto__ = G__66408;
 continue;
 }
 } else
@@ -69,8 +69,8 @@ game.systems.sync.emit.call(null,"action",game.lib.core._GT__LT_.call(null,game.
 (synced["\uFDD0'last-actions"] = goog.object.clone(actions));
 }
 {
-var G__61507 = (i__2910__auto__ + 1);
-i__2910__auto__ = G__61507;
+var G__66409 = (i__2910__auto__ + 1);
+i__2910__auto__ = G__66409;
 continue;
 }
 } else

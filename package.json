@@ -1,6 +1,6 @@
 {
   "name": "nko3-kodowa",
-  "version": "0.0.0",
+  "version": "0.0.0-1",
   "description": "Kodowa",
   "main": "server.js",
   "scripts": {
@@ -11,8 +11,8 @@
     "url": "git@github.com:nko3/kodowa.git"
   },
   "dependencies": {
-	  "express": "3.0.2",
-      "socket.io": "0.9.11"
+    "express": "3.0.2",
+    "socket.io": "0.9.11"
   },
   "engines": {
     "node": "0.8.x"

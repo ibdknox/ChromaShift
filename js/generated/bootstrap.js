@@ -13580,7 +13580,7 @@ game.systems.chroma.chromatons = function(a) {
   }
 };
 game.systems.sync = {};
-game.systems.sync.sock = io.connect("http://192.168.0.161");
+game.systems.sync.sock = io.connect("");
 game.systems.sync.emit = function(a, b) {
   return game.systems.sync.sock.emit(cljs.core.name.call(null, a), b)
 };

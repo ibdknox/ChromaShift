@@ -6,7 +6,7 @@
             [game.lib.physics :as phys])
   (:require-macros [game.lib.macros :refer [letc ? ! dofs]]))
 
-(def sock (.connect js/io "http://192.168.0.161"))
+(def sock (.connect js/io ""))
 
 (defn emit [k v]
   (.emit sock (name k) v))
