@@ -11,6 +11,8 @@
     "url": "git@github.com:nko3/kodowa.git"
   },
   "dependencies": {
+	  "express": "3.0.2",
+      "socket.io": "0.9.11"
   },
   "engines": {
     "node": "0.8.x"
