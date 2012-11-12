@@ -207,6 +207,13 @@ a:hover{
 	display: none;
 }
 
+#nko { 
+  position:absolute;
+  top:50px;
+  right: 50px;
+  background:black;
+}
+
 #back{
 	font-family: "Share Tech";
 	font-size: 18px;

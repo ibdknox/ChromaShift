@@ -1,6 +1,6 @@
 {
   "name": "nko3-kodowa",
-  "version": "0.0.0-2",
+  "version": "0.0.0-3",
   "description": "Kodowa",
   "main": "server.js",
   "scripts": {
