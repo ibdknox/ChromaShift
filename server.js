@@ -165,6 +165,12 @@ io.sockets.on('connection', function (socket) {
     if(games[g] && !games[g]["won"]) {
       me.socket.emit("win", {"﷐'win": true});
       games[g]["won"] = true;
+      var other = notMe(games[g], me.id);
+      if(other && other.socket) {
+        other.socket.emit("win", {"﷐'win": false});
+        removeFromGame(g, other);
+    	//add to global points
+      }
     } else {
       me.socket.emit("win", {"﷐'win": false});
     }
@@ -185,6 +191,8 @@ io.sockets.on('connection', function (socket) {
     }
   });
 });
+
+io.set("log level", 1);
 
 server.listen(3000);
 match();

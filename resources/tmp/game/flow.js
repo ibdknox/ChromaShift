@@ -68,11 +68,16 @@ game.systems.sync.end();
 return jayq.core.fade_out.call(null,jayq.core.$.call(null,"#game-container"),"slow");
 });
 game.flow.win = (function win(){
+game.lib.physics.clear_BANG_.call(null);
+game.lib.core.clear_BANG_.call(null);
 return jayq.core.fade_in.call(null,jayq.core.$.call(null,"#win"),500,(function (){
 return game.lib.util.wait.call(null,3000,game.flow.menu);
 }));
 });
 game.flow.lose = (function lose(){
+game.lib.physics.clear_BANG_.call(null);
+game.lib.core.clear_BANG_.call(null);
+jayq.core.fade_out.call(null,jayq.core.$.call(null,"#game-container"),"slow");
 return jayq.core.fade_in.call(null,jayq.core.$.call(null,"#lose"),500,(function (){
 return game.lib.util.wait.call(null,3000,game.flow.menu);
 }));

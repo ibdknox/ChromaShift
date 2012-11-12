@@ -67,11 +67,16 @@
   (fade-out ($ "#game-container") "slow"))
 
 (defn win []
+  (phys/clear!)
+  (core/clear!)
   (fade-in ($ "#win") 500 (fn []
                             (wait 3000 menu)
                             )))
 
 (defn lose []
+  (phys/clear!)
+  (core/clear!)
+    (fade-out ($ "#game-container") "slow")
   (fade-in ($ "#lose") 500 (fn []
                              (wait 3000 menu)
                             )))
